@@ -23,6 +23,6 @@ Simply checkout this project from Git, open the containing folder as Project in 
 
 Lorem Ipsum is the easy variant.
 BBC1 is the average variant.
-BBC2  is the difficult variant. 
+BBC2 is the difficult variant. 
 
 It's recommended to pick the easy or average variant to start with (depending on your confidence), and pick a harder variant for Task 5.
