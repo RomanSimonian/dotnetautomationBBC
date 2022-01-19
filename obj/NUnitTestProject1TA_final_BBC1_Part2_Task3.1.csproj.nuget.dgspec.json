@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Kulybych\\source\\repos\\NUnitTestProject1TA_final_BBC1_Part2_Task3.1.1\\NUnitTestProject1TA_final_BBC1_Part2_Task3.1.csproj": {}
+    "C:\\Users\\Kulybych\\source\\repos\\NUnitTestProject1TA_final_BBC1_Part2_Task3.1\\NUnitTestProject1TA_final_BBC1_Part2_Task3.1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Kulybych\\source\\repos\\NUnitTestProject1TA_final_BBC1_Part2_Task3.1.1\\NUnitTestProject1TA_final_BBC1_Part2_Task3.1.csproj": {
+    "C:\\Users\\Kulybych\\source\\repos\\NUnitTestProject1TA_final_BBC1_Part2_Task3.1\\NUnitTestProject1TA_final_BBC1_Part2_Task3.1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Kulybych\\source\\repos\\NUnitTestProject1TA_final_BBC1_Part2_Task3.1.1\\NUnitTestProject1TA_final_BBC1_Part2_Task3.1.csproj",
+        "projectUniqueName": "C:\\Users\\Kulybych\\source\\repos\\NUnitTestProject1TA_final_BBC1_Part2_Task3.1\\NUnitTestProject1TA_final_BBC1_Part2_Task3.1.csproj",
         "projectName": "NUnitTestProject1TA_final_BBC1_Part2_Task3.1",
-        "projectPath": "C:\\Users\\Kulybych\\source\\repos\\NUnitTestProject1TA_final_BBC1_Part2_Task3.1.1\\NUnitTestProject1TA_final_BBC1_Part2_Task3.1.csproj",
+        "projectPath": "C:\\Users\\Kulybych\\source\\repos\\NUnitTestProject1TA_final_BBC1_Part2_Task3.1\\NUnitTestProject1TA_final_BBC1_Part2_Task3.1.csproj",
         "packagesPath": "C:\\Users\\Kulybych\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Kulybych\\source\\repos\\NUnitTestProject1TA_final_BBC1_Part2_Task3.1.1\\obj\\",
+        "outputPath": "C:\\Users\\Kulybych\\source\\repos\\NUnitTestProject1TA_final_BBC1_Part2_Task3.1\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
