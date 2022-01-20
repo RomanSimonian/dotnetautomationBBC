@@ -9,23 +9,23 @@ namespace FinalTask_BBC2_Bogdanov.Pages
     public class SportPage : BasePage
     {
         [FindsBy(How = How.XPath, Using = @"//ul[contains(@class,'list')]//a[contains(@data-stat-title,'Football')]")]
-        private IWebElement fottballButton;
+        private IWebElement _fottballButton;
         [FindsBy(How = How.XPath, Using = @"//ul[contains(@id,'sp-nav-secondary')]//a[contains(@href,'scores-fi')]")]
-        private IWebElement scoresAdnFixtures;
+        private IWebElement _scoresAdnFixtures;
 
         public SportPage(IWebDriver driver) : base(driver)
         {
         }
 
-        public IWebElement getFottballButton()
+        public IWebElement GetFottballButton()
         {
-            return fottballButton;
+            return _fottballButton;
         }
-        public ScorePage goToScorePage()
+        public ScorePage GoToScorePage()
         {
-            waitUntilEnable(timeToWait, scoresAdnFixtures);
-            scoresAdnFixtures.Click();
-            return new ScorePage(driver);
+            WaitUntilEnable(TimeToWait, _scoresAdnFixtures);
+            _scoresAdnFixtures.Click();
+            return new ScorePage(Driver);
         }
     }
 }

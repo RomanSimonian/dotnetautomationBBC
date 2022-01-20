@@ -9,26 +9,26 @@ namespace FinalTask_BBC2_Bogdanov.Pages
     public class HomePage : BasePage
     {
         [FindsBy(How = How.XPath, Using = @"//a[@rev='hero1|headline']")]
-        private IWebElement mainArtictText;
+        private IWebElement _mainArtictText;
         [FindsBy(How = How.XPath, Using = @"//div[contains(@class,'orb-nav-pri-container')]//a[text() = 'News']")]
-        private IWebElement newsRef;
+        private IWebElement _newsRef;
         [FindsBy(How = How.XPath, Using = @"//nav[@role='navigation']//a[contains(text(),'Sport')]")]
-        private IWebElement sportButton;
+        private IWebElement _sportButton;
 
 
         public HomePage(IWebDriver driver) : base(driver)
         {
         }
         
-        public NewsPage goToNewsPage()
+        public NewsPage GoToNewsPage()
         {
-            newsRef.Click();
-            return new NewsPage(driver);
+            _newsRef.Click();
+            return new NewsPage(Driver);
         }
         public SportPage goToSportPage()
         {
-            sportButton.Click();
-            return new SportPage(driver);
+            _sportButton.Click();
+            return new SportPage(Driver);
         }
 
 

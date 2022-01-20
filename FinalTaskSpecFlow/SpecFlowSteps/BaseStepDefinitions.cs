@@ -8,27 +8,27 @@ namespace FinalTask_BBC2_Bogdanov.SpecFlowSteps
 {
     public class BaseStepDefinitions
     {
-        public IWebDriver driver;
-        public HomePage homePage = null;
-        public NewsPage newsPage = null;
-        public SportPage sportPage = null;
-        public ScorePage scorePage = null;
-        public TeamScorePage teamScorePage = null;
+        protected IWebDriver Driver;
+        protected HomePage Home_Page = null;
+        protected NewsPage News_Page = null;
+        protected SportPage Sport_Page = null;
+        protected ScorePage Score_Page = null;
+        protected TeamScorePage TeamScore_Page = null;
 
 
 
         [Before]
         public void SetUp()
         {
-            driver = new ChromeDriver();
-            driver.Navigate().GoToUrl("https://www.bbc.com");
-            driver.Manage().Window.Maximize();
+            Driver = new ChromeDriver();
+            Driver.Navigate().GoToUrl("https://www.bbc.com");
+            Driver.Manage().Window.Maximize();
         }
 
         [After]
         public void Finish()
         {
-            driver.Close();
+            Driver.Close();
         }
     }
 }

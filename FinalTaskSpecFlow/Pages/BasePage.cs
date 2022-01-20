@@ -8,32 +8,32 @@ namespace FinalTask_BBC2_Bogdanov.Pages
 
     public class BasePage
     {
-        public IWebDriver driver;
-        public double timeToWait = 30;
+        protected IWebDriver Driver;
+        public double TimeToWait = 30;
 
         public BasePage(IWebDriver driver)
         {
-            this.driver = driver;
+            this.Driver = driver;
             PageFactory.InitElements(driver, this);
         }
 
-        public void implisityWait(double timeToWait)
+        public void ImplisityWait(double timeToWait)
         {
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(timeToWait));
+            WebDriverWait Wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(timeToWait));
         }
-        public IWebElement waitAndReturmElementExist(double timeToWait, string xpathElement)
+        public IWebElement WaitAndReturmElementExist(double timeToWait, string xpathElement)
         {
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(timeToWait));
-            wait.IgnoreExceptionTypes(typeof(NoSuchElementException));
-            var element = wait.Until(x => x.FindElement(By.XPath(xpathElement)));
+            WebDriverWait Wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(timeToWait));
+            Wait.IgnoreExceptionTypes(typeof(NoSuchElementException));
+            var element = Wait.Until(x => x.FindElement(By.XPath(xpathElement)));
             return element;
         }
 
-        public void waitUntilEnable(double timeToWait, IWebElement element)
+        public void WaitUntilEnable(double timeToWait, IWebElement element)
         {
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(timeToWait));
-            wait.IgnoreExceptionTypes(typeof(NoSuchElementException));
-            wait.Until<bool>(x => element.Enabled);
+            WebDriverWait Wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(timeToWait));
+            Wait.IgnoreExceptionTypes(typeof(NoSuchElementException));
+            Wait.Until<bool>(x => element.Enabled);
         }
 
 

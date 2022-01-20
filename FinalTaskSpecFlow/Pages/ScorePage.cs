@@ -11,26 +11,24 @@ namespace FinalTask_BBC2_Bogdanov.Pages
     public class ScorePage : BasePage
     {
 
-        private string aInDivWithYearAndMounth = @"//a[contains(@class,'sp-c-date-picker-timeline__item-inner  false')]";
-        private string searchInputForClick = @"//a//mark";
-
-
+        private string _aInDivWithYearAndMounth = @"//a[contains(@class,'sp-c-date-picker-timeline__item-inner  false')]";
+        private string _searchInputForClick = @"//a//mark";
 
         [FindsBy(How = How.XPath, Using = @"//input[contains(@name,'search')]")]
-        private IWebElement searchChempionshipInput;
+        private IWebElement _searchChempionshipInput;
         [FindsBy(How = How.XPath, Using = @"//div[@class = 'sp-c-date-picker-timeline__lists']")]
-        private IWebElement divWithYearAndMounth;
+        private IWebElement _divWithYearAndMounth;
         [FindsBy(How = How.XPath, Using = @"//span[contains(@class,'gel-long-primer-bold gs-u-display-block')]")]
-        private IList<IWebElement> listOfMounth;
+        private IList<IWebElement> _listOfMounth;
         [FindsBy(How = How.XPath, Using = @"//span[@class='gel-long-primer gs-u-display-block']")]
-        private IList<IWebElement> listOfYears;
+        private IList<IWebElement> _listOfYears;
         [FindsBy(How = How.XPath, Using = @"//li[@class='gs-o-list-ui__item gs-u-pb-']")]
-        private IList<IWebElement> listScoresAndTeams;
+        private IList<IWebElement> _listScoresAndTeams;
         [FindsBy(How = How.XPath, Using = @"//li[@class='gs-o-list-ui__item gs-u-pb-']//div/span/span/span")]
-        private IList<IWebElement> listTeams;
+        private IList<IWebElement> _listTeams;
         string listScoresAndTeams1 = @"//li[@class='gs-o-list-ui__item gs-u-pb-'][1]";
 
-        private IWebElement yearMonthElement(string year, string mounth, IWebElement divWithYearAndMounth, string aInDivWithYearAndMounth)
+        private IWebElement YearMonthElement(string year, string mounth, IWebElement divWithYearAndMounth, string aInDivWithYearAndMounth)
         {
 
             IList<IWebElement> listOfAElementYearsMonth = divWithYearAndMounth.FindElements(By.XPath(aInDivWithYearAndMounth));
@@ -49,26 +47,26 @@ namespace FinalTask_BBC2_Bogdanov.Pages
         }
 
 
-        public void enterChempionshipInput(string championShip)
+        public void EnterChempionshipInput(string championShip)
         {
-            searchChempionshipInput.SendKeys(championShip);
+            _searchChempionshipInput.SendKeys(championShip);
         }
 
-        public IWebElement getSearchInputForClick()
+        public IWebElement GetSearchInputForClick()
         {
-            return waitAndReturmElementExist(timeToWait, searchInputForClick);
+            return WaitAndReturmElementExist(TimeToWait, _searchInputForClick);
         }
 
-        public IWebElement getYearMonthElementToClick(string yearChempionShip, string mounthChempionShip)
+        public IWebElement GetYearMonthElementToClick(string yearChempionShip, string mounthChempionShip)
         {
-            return yearMonthElement(yearChempionShip, mounthChempionShip,divWithYearAndMounth, aInDivWithYearAndMounth);
+            return YearMonthElement(yearChempionShip, mounthChempionShip,_divWithYearAndMounth, _aInDivWithYearAndMounth);
         }
 
-        public bool getScoreTeamsToCheck(String stringTeamsScores, string team1, string team2)
+        public bool GetScoreTeamsToCheck(String stringTeamsScores, string team1, string team2)
         {
-            waitAndReturmElementExist(30, listScoresAndTeams1);
-            IList<IWebElement> listOfTeams = listScoresAndTeams[0].FindElements(By.XPath("//li[@class='gs-o-list-ui__item gs-u-pb-']//div/span/span/span"));
-            getScoreTeamElement(stringTeamsScores);
+            WaitAndReturmElementExist(TimeToWait, listScoresAndTeams1);
+            IList<IWebElement> listOfTeams = _listScoresAndTeams[0].FindElements(By.XPath("//li[@class='gs-o-list-ui__item gs-u-pb-']//div/span/span/span"));
+            GetScoreTeamElement(stringTeamsScores);
             for (var i = 0; i < listOfTeams.Count; i++)
             {
                 if (listOfTeams[i].Text.ToLower().Contains(team1.ToLower()))
@@ -82,12 +80,12 @@ namespace FinalTask_BBC2_Bogdanov.Pages
             return false;
         }
 
-        public bool getScoreTeamElement(string stringTeamsScores)
+        public bool GetScoreTeamElement(string stringTeamsScores)
         {
-            waitAndReturmElementExist(30, listScoresAndTeams1);
-            for (var i = 0; i < listTeams.Count(); i+=4)
+            WaitAndReturmElementExist(TimeToWait, listScoresAndTeams1);
+            for (var i = 0; i < _listTeams.Count(); i+=4)
             {
-                string resultString = listTeams[i + 0].Text + " " + listTeams[i + 1].Text + " : " + listTeams[i + 3].Text + " " + listTeams[i + 2].Text;
+                string resultString = _listTeams[i + 0].Text + " " + _listTeams[i + 1].Text + " : " + _listTeams[i + 3].Text + " " + _listTeams[i + 2].Text;
                 Console.WriteLine(resultString);
                 if (resultString == stringTeamsScores)
                 {
@@ -96,25 +94,25 @@ namespace FinalTask_BBC2_Bogdanov.Pages
             }
             return false;
         }
-        public IWebElement getScoreTeamElement(string stringTeamsScores, bool returnWebElement)
+        public IWebElement GetScoreTeamElement(string stringTeamsScores, bool returnWebElement)
         {
-            waitAndReturmElementExist(30, listScoresAndTeams1);
-            for (var i = 0; i < listTeams.Count(); i += 4)
+            WaitAndReturmElementExist(TimeToWait, listScoresAndTeams1);
+            for (var i = 0; i < _listTeams.Count(); i += 4)
             {
-                string resultString = listTeams[i + 0].Text + " " + listTeams[i + 1].Text + " : " + listTeams[i + 3].Text + " " + listTeams[i + 2].Text;
+                string resultString = _listTeams[i + 0].Text + " " + _listTeams[i + 1].Text + " : " + _listTeams[i + 3].Text + " " + _listTeams[i + 2].Text;
                 Console.WriteLine(resultString);
                 if (resultString == stringTeamsScores)
                 {
-                    return listTeams[i];
+                    return _listTeams[i];
                 }
             }
             return null;
         }
 
-        public TeamScorePage toGoTeamScorePage(IWebElement element)
+        public TeamScorePage ToGoTeamScorePage(IWebElement element)
         {
             element.Click();
-            return new TeamScorePage(driver);
+            return new TeamScorePage(Driver);
         }
 
     }
