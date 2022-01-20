@@ -1,4 +1,4 @@
-﻿using OpenQA.Selenium;
+using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
 using System;
 using System.Collections.Generic;
@@ -25,7 +25,7 @@ namespace FinalTask_BBC2_Bogdanov.Pages
             _newsRef.Click();
             return new NewsPage(Driver);
         }
-        public SportPage goToSportPage()
+        public SportPage GoToSportPage()
         {
             _sportButton.Click();
             return new SportPage(Driver);
