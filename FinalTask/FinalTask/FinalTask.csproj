@@ -85,7 +85,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main\Pages\BasePage.cs" />
+    <Compile Include="Main\Pages\MyCoronavirusStoryPage.cs" />
+    <Compile Include="Main\Pages\CoronavirusStoryPage.cs" />
     <Compile Include="Main\Pages\HomePage.cs" />
+    <Compile Include="Main\Pages\CoronavirusPage.cs" />
     <Compile Include="Main\Pages\NewsPage.cs" />
     <Compile Include="Main\StepDefinitions\StepDefinitions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
