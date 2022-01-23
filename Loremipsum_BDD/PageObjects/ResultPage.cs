@@ -9,18 +9,18 @@ namespace Loremipsum_BDD.PageObjects
 {
     public class ResultPage
     {
-        private readonly IWebDriver webDriver;
+        private readonly IWebDriver _webDriver;
 
         private readonly string _allParagraphsXpath = "//div[@id='lipsum']/p";
 
         public ResultPage(IWebDriver webDriver)
         {
-            this.webDriver = webDriver;
+            _webDriver = webDriver;
         }
 
         public string GetTextParagraph(int number)
         {
-            return webDriver.FindElement(By.XPath(_allParagraphsXpath+$"[{number}]")).Text;
+            return _webDriver.FindElement(By.XPath(_allParagraphsXpath+$"[{number}]")).Text;
         }
 
         public int GetWordsActualSize()
@@ -47,7 +47,7 @@ namespace Loremipsum_BDD.PageObjects
 
         public int GetCountParagraphWithLorem()
         {
-            List<IWebElement> listElements = webDriver.FindElements(By.XPath(_allParagraphsXpath)).ToList();
+            List<IWebElement> listElements = _webDriver.FindElements(By.XPath(_allParagraphsXpath)).ToList();
             int count = 0;
             foreach (IWebElement webElement in listElements)
             {

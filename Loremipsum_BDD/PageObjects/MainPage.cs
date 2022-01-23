@@ -9,7 +9,7 @@ namespace Loremipsum_BDD.PageObjects
 {
     public class MainPage
     {
-        private readonly IWebDriver webDriver;
+        private readonly IWebDriver _webDriver;
         
         private readonly By _rusLanguage = By.XPath("//a[@href='http://ru.lipsum.com/']");
         private readonly By _generatelorem = By.XPath("//input[@id='generate']");
@@ -19,44 +19,44 @@ namespace Loremipsum_BDD.PageObjects
 
         public MainPage(IWebDriver webDriver)
         {
-            this.webDriver = webDriver;
+            _webDriver = webDriver;
         }
 
         public MainPage ChooseRusLanguage()
         {
-            webDriver.FindElement(_rusLanguage).Click();
+            _webDriver.FindElement(_rusLanguage).Click();
             return this;
         }
 
         public string GetRusTextFirstParagraph()
         {
-            return webDriver.FindElement(_rusParagraph1).Text;
+            return _webDriver.FindElement(_rusParagraph1).Text;
         }
 
         public ResultPage GenerateLorem()
         {
-            webDriver.FindElement(_generatelorem).Click();
-            return new ResultPage(webDriver);
+            _webDriver.FindElement(_generatelorem).Click();
+            return new ResultPage(_webDriver);
         }
 
         public MainPage GetCheckboxBeginWithLorem()
         {
-            webDriver.FindElement(_checkboxBeginWithLorem).Click();
+            _webDriver.FindElement(_checkboxBeginWithLorem).Click();
             return this;
         }
 
         public MainPage GetInputInEntryField(int count)
         {
-            webDriver.FindElement(_entryfield).Click();
-            webDriver.FindElement(_entryfield).Clear();
-            webDriver.FindElement(_entryfield).SendKeys(count.ToString());
+            _webDriver.FindElement(_entryfield).Click();
+            _webDriver.FindElement(_entryfield).Clear();
+            _webDriver.FindElement(_entryfield).SendKeys(count.ToString());
             return this;
         }
 
         public void GetGenerator(int count, string element)
         {
             GetInputInEntryField(count);
-            webDriver.FindElement(By.XPath($"//label[@for='{element}']")).Click();
+            _webDriver.FindElement(By.XPath($"//label[@for='{element}']")).Click();
             GenerateLorem();
         }
         public int GeneratorInQuantity(int times)
@@ -65,9 +65,9 @@ namespace Loremipsum_BDD.PageObjects
             for (int i = 0; i < times; i++)
             {
                 GenerateLorem();
-                var resultPage = new ResultPage(webDriver);
+                var resultPage = new ResultPage(_webDriver);
                 actualResult += resultPage.GetCountParagraphWithLorem();
-                webDriver.Navigate().Back();
+                _webDriver.Navigate().Back();
             }
             return actualResult;
         }
