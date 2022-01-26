@@ -14,9 +14,7 @@ namespace FinalTask.Main.Pages
 		[FindsBy(How = How.XPath, Using = @"//a[@href='/news/52143212']")]
 		private IWebElement _myCoronavirusStoryPage;
  
-		public CoronavirusStoryPage(IWebDriver driver) : base(driver)
-		{
-		}
+		public CoronavirusStoryPage(IWebDriver driver) : base(driver) {}
 
 		public MyCoronavirusStoryPage GoToMyCoronavirusStoryPage()
 		{

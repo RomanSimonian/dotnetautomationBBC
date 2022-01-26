@@ -21,7 +21,7 @@ namespace FinalTask.Main.Pages
 			WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(defaultTime));
 		}
 
-		public IWebElement WaitAndReturmElementExist(double defaultTime, string xpathElement)
+		public IWebElement WaitForElementExist(double defaultTime, string xpathElement)
 		{
 			WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(defaultTime));
 			wait.IgnoreExceptionTypes(typeof(NoSuchElementException));

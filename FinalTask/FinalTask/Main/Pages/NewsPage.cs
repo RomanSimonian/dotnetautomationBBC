@@ -14,9 +14,7 @@ namespace FinalTask.Main.Pages
         [FindsBy(How = How.XPath, Using = @"//ul[@class='gs-o-list-ui--top-no-border nw-c-nav__wide-sections']//a[@href='/news/coronavirus']")]
         private IWebElement _coronavirusPage;
 
-        public NewsPage(IWebDriver driver) : base(driver)
-        {
-        }
+        public NewsPage(IWebDriver driver) : base(driver) {}
 
         public CoronavirusPage GoToCoronavirusPage()
         {
