@@ -1,6 +1,7 @@
 ﻿using Loremipsum_BDD.PageObjects;
 using NUnit.Framework;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
 using System;
 using TechTalk.SpecFlow;
 
@@ -14,7 +15,7 @@ namespace Loremipsum_BDD.SpecFlowTests
         [Before]
         public void SetUp()
         {
-            _webDriver = new OpenQA.Selenium.Chrome.ChromeDriver();
+            _webDriver = new ChromeDriver();
             _webDriver.Manage().Window.Maximize();
             _webDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
         }
