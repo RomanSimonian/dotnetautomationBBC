@@ -35,7 +35,7 @@ namespace Loremipsum_BDD.PageObjects
 
         public ResultPage GenerateLorem()
         {
-            _webDriver.FindElement(_generatelorem).Click();
+            _webDriver.FindElement(_generateLorem).Click();
             return new ResultPage(_webDriver);
         }
 
@@ -47,9 +47,9 @@ namespace Loremipsum_BDD.PageObjects
 
         public MainPage GetInputInEntryField(int count)
         {
-            _webDriver.FindElement(_entryfield).Click();
-            _webDriver.FindElement(_entryfield).Clear();
-            _webDriver.FindElement(_entryfield).SendKeys(count.ToString());
+            _webDriver.FindElement(_entryField).Click();
+            _webDriver.FindElement(_entryField).Clear();
+            _webDriver.FindElement(_entryField).SendKeys(count.ToString());
             return this;
         }
 
