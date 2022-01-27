@@ -42,7 +42,7 @@ namespace Loremipsum_BDD.SpecFlowTests
         public void ThenUserChecksThatTextFirstParagraphContainsWord(string word)
         {
             var mainPage = new MainPage(_webDriver);
-            Assert.True(mainPage.GetRusTextFirstParagraph().Contains(word));
+            Assert.True(mainPage.GetRusText().Contains(word));
         }
         [When(@"User generates a new lorem")]
         public void WhenUserGeneratesANewLorem()
