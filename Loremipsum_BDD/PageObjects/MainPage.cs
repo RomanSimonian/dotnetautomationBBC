@@ -61,15 +61,13 @@ namespace Loremipsum_BDD.PageObjects
         }
         public int GeneratorInQuantity(int times)
         {
-            int actualResult = 0;
+            int result = 0;
             for (int i = 0; i < times; i++)
             {
-                GenerateLorem();
-                var resultPage = new ResultPage(_webDriver);
-                actualResult += resultPage.GetCountParagraphWithLorem();
+                result += GenerateLorem().GetCountParagraphWithLorem();
                 _webDriver.Navigate().Back();
             }
-            return actualResult;
+            return result / times;
         }
 
     }

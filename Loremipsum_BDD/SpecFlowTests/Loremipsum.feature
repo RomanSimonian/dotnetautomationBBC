@@ -54,4 +54,5 @@ Scenario Outline: Checking created lorem not start with text
 @mytag
 Scenario: Checking probability contains word "lorem"
     Given User opens 'https://www.lipsum.com/' page
-    Then User generates 10 text with lorem compares the average number of lorem words with 2
+    When User generates 10 text with lorem 
+    Then Compares that the average number is greater than 2

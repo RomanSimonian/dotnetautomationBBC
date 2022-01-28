@@ -11,6 +11,7 @@ namespace Loremipsum_BDD.SpecFlowTests
     public class LoremipsumSteps
     {
         private  WebDriver _webDriver;
+        private int _averageNumberLorem;
 
         [Before]
         public void SetUp()
@@ -85,12 +86,17 @@ namespace Loremipsum_BDD.SpecFlowTests
             var resultPage = new ResultPage(_webDriver);
             Assert.IsFalse(resultPage.GetTextParagraph(1).StartsWith(text));
         }
-        [Then(@"User generates (.*) text with lorem compares the average number of lorem words with (.*)")]
-        public void ThenUserGeneratesTextWithLoremComparesTheAverageNumberOfLoremWordsWith(int times, int expected_result)
+        [When(@"User generates (.*) text with lorem")]
+        public int WhenUserGeneratesTextWithLorem(int times)
         {
             var mainPage = new MainPage(_webDriver);
-            Assert.IsTrue(mainPage.GeneratorInQuantity(times) / times >= expected_result);
+            _averageNumberLorem = mainPage.GeneratorInQuantity(times);
+            return _averageNumberLorem;
         }
-
+        [Then(@"Compares that the average number is greater than (.*)")]
+        public void ThenComparesThatTheAverageNumberIsGreaterThan(int number)
+        {
+            Assert.IsTrue(_averageNumberLorem >= number);
+        }
     }
 }

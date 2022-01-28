@@ -319,8 +319,10 @@ this.ScenarioInitialize(scenarioInfo);
     testRunner.Given("User opens \'https://www.lipsum.com/\' page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 57
-    testRunner.Then("User generates 10 text with lorem compares the average number of lorem words with" +
-                        " 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.When("User generates 10 text with lorem", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 58
+    testRunner.Then("Compares that the average number is greater than 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
