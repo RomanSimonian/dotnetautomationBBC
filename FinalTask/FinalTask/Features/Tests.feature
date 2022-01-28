@@ -3,7 +3,7 @@
   I want to check functionality of a site
   To confirm it works correctly
 
-  Scenario: User checks form to ask your question without correct values
+  Scenario: User checks form to ask your question without correct values1
     Given User opens homepage page BBC
     When User clicks on News tab
     And User clicks on Coronavirus tab

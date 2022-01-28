@@ -1,9 +1,9 @@
-﻿using FinalTask.Main.Pages;
+﻿using FinalTask.Pages;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using TechTalk.SpecFlow;
 
-namespace FinalTask.Main.StepDefinitions
+namespace FinalTask.StepDefinitions
 {
     public class BaseStepDefinitions
     {
@@ -25,7 +25,7 @@ namespace FinalTask.Main.StepDefinitions
         [After]
         public void Finish()
         {
-            Driver.Close();
+            Driver.Quit();
         }
     }
 }

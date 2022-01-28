@@ -7,7 +7,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.PageObjects;
 
-namespace FinalTask.Main.Pages
+namespace FinalTask.Pages
 {
 	public class MyCoronavirusStoryPage : BasePage
 	{

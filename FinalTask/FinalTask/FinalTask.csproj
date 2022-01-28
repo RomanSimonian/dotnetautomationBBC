@@ -84,19 +84,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Main\Pages\BasePage.cs" />
-    <Compile Include="Main\Pages\MyCoronavirusStoryPage.cs" />
-    <Compile Include="Main\Pages\CoronavirusStoryPage.cs" />
-    <Compile Include="Main\Pages\HomePage.cs" />
-    <Compile Include="Main\Pages\CoronavirusPage.cs" />
-    <Compile Include="Main\Pages\NewsPage.cs" />
-    <Compile Include="Main\StepDefinitions\BaseStepDefinitions.cs" />
-    <Compile Include="Main\StepDefinitions\StepDefinitions.cs" />
+    <Compile Include="Pages\BasePage.cs" />
+    <Compile Include="Pages\MyCoronavirusStoryPage.cs" />
+    <Compile Include="Pages\CoronavirusStoryPage.cs" />
+    <Compile Include="Pages\HomePage.cs" />
+    <Compile Include="Pages\CoronavirusPage.cs" />
+    <Compile Include="Pages\NewsPage.cs" />
+    <Compile Include="StepDefinitions\BaseStepDefinitions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StepDefinitions\Steps.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Features\Tests.feature" />
     <None Include="packages.config" />
-    <None Include="Tests\RunnerTests.feature" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
