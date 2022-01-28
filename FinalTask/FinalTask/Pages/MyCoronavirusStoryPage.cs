@@ -30,6 +30,17 @@ namespace FinalTask.Pages
 
 		public MyCoronavirusStoryPage(IWebDriver driver) : base(driver)	{}
 
+		public MyCoronavirusStoryPage FillTheForm(string question, string name, string email, string number, string location, string age)
+        {
+			_myQuestion.SendKeys(question);
+			_myName.SendKeys(name);
+			_myEmail.SendKeys(email);
+			_myNumber.SendKeys(number);
+			_myAge.SendKeys(location);
+			_myLocation.SendKeys(age);
+			return new MyCoronavirusStoryPage(Driver);
+		}
+
 		public MyCoronavirusStoryPage ClickCheckBox()
 		{
 			_checkBox.Click();

@@ -2,6 +2,11 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using TechTalk.SpecFlow;
+using NUnit.Framework;
+using System.Collections.Generic;
+using SeleniumExtras.PageObjects;
+using OpenQA.Selenium.Support.UI;
+using System;
 
 namespace FinalTask.StepDefinitions
 {
