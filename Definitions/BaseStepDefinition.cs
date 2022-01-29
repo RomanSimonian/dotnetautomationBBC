@@ -19,6 +19,8 @@ namespace BBC1_task_4._1._1.Definitions
         protected CovidNewsPage covidNewsPage = null;
         protected HomePage homePage = null;
 
+        private readonly By pop_up = By.XPath("//button[@class='tp-close tp-active']");
+
         [Before]
         public void Setup()
         {
@@ -27,13 +29,13 @@ namespace BBC1_task_4._1._1.Definitions
             driver.Navigate().GoToUrl("https://www.bbc.com/news/10725415");
 
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(30));
-            wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//button[@class='tp-close tp-active']")));
+            wait.Until(ExpectedConditions.ElementIsVisible(pop_up));
 
-            driver.FindElement(By.XPath("//button[@class='tp-close tp-active']")).Click();
+            driver.FindElement(pop_up).Click();
         }
 
         [After]
-        public void tearDown()
+        public void TearDown()
         {
             driver.Quit();
         }

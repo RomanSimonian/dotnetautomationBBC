@@ -5,51 +5,51 @@
 Scenario: checkTheFormWithValidInputData
 	Given User goes to bbc Stories page
 	When User enter the <textData> <nameData> <emailData> <conyactNumberData> <locationData>
-	Then User can see the form is <passed>
+	Then User can see the form passed
 
 	Examples: 
-	| textData             | nameData | emailData                    | conyactNumberData | locationData | passed |
-	| Here is my story sdf | Nick     | fjqgrezlevoopvwgpi@nthrw.com | +3806723424       | Kyiv         | true   |
+	| textData             | nameData | emailData                    | conyactNumberData | locationData |
+	| Here is my story sdf | Nick     | fjqgrezlevoopvwgpi@nthrw.com | +3806723424       | Kyiv         |
 
 @mytag
 Scenario: checkTheFormWithInvalidTextareaInput
 	Given User goes to bbc Stories page
 	When User enter the <textData> <nameData> <emailData> <conyactNumberData> <locationData>
-	Then User can see the form InvalidText assert <passed>
+	Then User can see the form InvalidText assert
 
 	Examples: 
-	| textData | nameData | emailData                    | conyactNumberData | locationData | passed |
-	|          | Nick     | fjqgrezlevoopvwgpi@nthrw.com | +3806723424       | Kyiv         | true   |
+	| textData | nameData | emailData                    | conyactNumberData | locationData |
+	|          | Nick     | fjqgrezlevoopvwgpi@nthrw.com | +3806723424       | Kyiv         |
 
 @mytag
 Scenario: checkTheFormWithInvalidNameInput
 	Given User goes to bbc Stories page
 	When User enter the <textData> <nameData> <emailData> <conyactNumberData> <locationData>
-	Then User can see the form InvalidName assert <passed>
+	Then User can see the form InvalidName assert
 
 	Examples: 
-	| textData             | nameData | emailData                    | conyactNumberData | locationData | passed |
-	| Here is my story sdf |          | fjqgrezlevoopvwgpi@nthrw.com | +3806723424       | Kyiv         | true   |
+	| textData             | nameData | emailData                    | conyactNumberData | locationData |
+	| Here is my story sdf |          | fjqgrezlevoopvwgpi@nthrw.com | +3806723424       | Kyiv         |
 
 @mytag
 Scenario: checkTheFormWithInvalidEmailInput
 	Given User goes to bbc Stories page
 	When User enter the <textData> <nameData> <emailData> <conyactNumberData> <locationData>
-	Then User can see the form InvalidEmail assert <passed>
+	Then User can see the form InvalidEmail assert
 
 	Examples: 
-	| textData             | nameData | emailData          | conyactNumberData | locationData | passed |
-	| Here is my story sdf | Nick     | fjqgrezlevoopvwgpi | +3806723424       | Kyiv         | true   |
+	| textData             | nameData | emailData          | conyactNumberData | locationData |
+	| Here is my story sdf | Nick     | fjqgrezlevoopvwgpi | +3806723424       | Kyiv         | 
 
 @mytag
 Scenario: checkTheFormWithUncheckedTermsOfServiceCheckbox
 	Given User goes to bbc Stories page
-	When User enter data wirh unchecked box <textData> <nameData> <emailData> <conyactNumberData> <locationData> <check>
-	Then User can see the form with UncheckedTermsOfServiceCheckbox assert <passed>
+	When User enter data wirh unchecked box <textData> <nameData> <emailData> <conyactNumberData> <locationData> <acceptCheckbox>
+	Then User can see the form with UncheckedTermsOfServiceCheckbox assert
 
 	Examples: 
-	| textData             | nameData | emailData          | conyactNumberData | locationData | passed | check |
-	| Here is my story sdf | Nick     | fjqgrezlevoopvwgpi | +3806723424       | Kyiv         | true   | false |
+	| textData                   | nameData | emailData                    | conyactNumberData | locationData | acceptCheckbox |
+	| Here is my story sdfgdgdfg | Nick     | fjqgrezlevoopvwgpi@nthrw.com | +3806723424       | Kyiv         | false           |
 
 @mytag
 Scenario: checkNameOfHeadlineArticle
@@ -64,10 +64,10 @@ Scenario: checkNameOfHeadlineArticle
 
 @mytag
 Scenario: checkSecondaryArticlesTitles
-	Given User goes to bbc covid news
-	When User navigates to news <link>
-	Then User see matcing articles <firstArticle> <secondArticle> <thirdArticle> <fourthArticle> <fifthArticle>
+Given User goes to covid news
+When User navigates via the <link>
+Then User se articles "<topArticle>" "<underArticle>" "<positionTop>" "<positionUnder>"
 
-	Examples: 
-	| link                                 | firstArticle                                      | secondArticle                                    | thirdArticle                                       | fourthArticle                                      | fifthArticle                                          |
-	| https://www.bbc.com/news/coronavirus | WHO warns Covid not over amid Europe case records | Covid isolation cut to five full days in England | Beijing urges end to foreign deliveries over Covid | The puzzle of America's record Covid hospital rate | Banker who quit over Covid breach went to Euros final |
+Examples: 
+| link                                 | topArticle                                      | underArticle                                | positionTop | positionUnder |
+| https://www.bbc.com/news/coronavirus | Call to delay compulsory vaccines for NHS staff | Ros Atkins On... China's zero-Covid dilemma | 0           | 3             |

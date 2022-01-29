@@ -76,8 +76,8 @@ namespace BBC1_task_4._1._1.Features
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("checkTheFormWithValidInputData")]
         [NUnit.Framework.CategoryAttribute("mytag")]
-        [NUnit.Framework.TestCaseAttribute("Here is my story sdf", "Nick", "fjqgrezlevoopvwgpi@nthrw.com", "+3806723424", "Kyiv", "true", null)]
-        public virtual void CheckTheFormWithValidInputData(string textData, string nameData, string emailData, string conyactNumberData, string locationData, string passed, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("Here is my story sdf", "Nick", "fjqgrezlevoopvwgpi@nthrw.com", "+3806723424", "Kyiv", null)]
+        public virtual void CheckTheFormWithValidInputData(string textData, string nameData, string emailData, string conyactNumberData, string locationData, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "mytag"};
@@ -92,7 +92,6 @@ namespace BBC1_task_4._1._1.Features
             argumentsOfScenario.Add("emailData", emailData);
             argumentsOfScenario.Add("conyactNumberData", conyactNumberData);
             argumentsOfScenario.Add("locationData", locationData);
-            argumentsOfScenario.Add("passed", passed);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("checkTheFormWithValidInputData", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 5
 this.ScenarioInitialize(scenarioInfo);
@@ -121,7 +120,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.When(string.Format("User enter the {0} {1} {2} {3} {4}", textData, nameData, emailData, conyactNumberData, locationData), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 8
- testRunner.Then(string.Format("User can see the form is {0}", passed), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("User can see the form passed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -130,8 +129,8 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("checkTheFormWithInvalidTextareaInput")]
         [NUnit.Framework.CategoryAttribute("mytag")]
-        [NUnit.Framework.TestCaseAttribute("", "Nick", "fjqgrezlevoopvwgpi@nthrw.com", "+3806723424", "Kyiv", "true", null)]
-        public virtual void CheckTheFormWithInvalidTextareaInput(string textData, string nameData, string emailData, string conyactNumberData, string locationData, string passed, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("", "Nick", "fjqgrezlevoopvwgpi@nthrw.com", "+3806723424", "Kyiv", null)]
+        public virtual void CheckTheFormWithInvalidTextareaInput(string textData, string nameData, string emailData, string conyactNumberData, string locationData, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "mytag"};
@@ -146,7 +145,6 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("emailData", emailData);
             argumentsOfScenario.Add("conyactNumberData", conyactNumberData);
             argumentsOfScenario.Add("locationData", locationData);
-            argumentsOfScenario.Add("passed", passed);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("checkTheFormWithInvalidTextareaInput", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 15
 this.ScenarioInitialize(scenarioInfo);
@@ -175,7 +173,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.When(string.Format("User enter the {0} {1} {2} {3} {4}", textData, nameData, emailData, conyactNumberData, locationData), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 18
- testRunner.Then(string.Format("User can see the form InvalidText assert {0}", passed), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("User can see the form InvalidText assert", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -184,8 +182,8 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("checkTheFormWithInvalidNameInput")]
         [NUnit.Framework.CategoryAttribute("mytag")]
-        [NUnit.Framework.TestCaseAttribute("Here is my story sdf", "", "fjqgrezlevoopvwgpi@nthrw.com", "+3806723424", "Kyiv", "true", null)]
-        public virtual void CheckTheFormWithInvalidNameInput(string textData, string nameData, string emailData, string conyactNumberData, string locationData, string passed, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("Here is my story sdf", "", "fjqgrezlevoopvwgpi@nthrw.com", "+3806723424", "Kyiv", null)]
+        public virtual void CheckTheFormWithInvalidNameInput(string textData, string nameData, string emailData, string conyactNumberData, string locationData, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "mytag"};
@@ -200,7 +198,6 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("emailData", emailData);
             argumentsOfScenario.Add("conyactNumberData", conyactNumberData);
             argumentsOfScenario.Add("locationData", locationData);
-            argumentsOfScenario.Add("passed", passed);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("checkTheFormWithInvalidNameInput", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 25
 this.ScenarioInitialize(scenarioInfo);
@@ -229,7 +226,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.When(string.Format("User enter the {0} {1} {2} {3} {4}", textData, nameData, emailData, conyactNumberData, locationData), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 28
- testRunner.Then(string.Format("User can see the form InvalidName assert {0}", passed), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("User can see the form InvalidName assert", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -238,8 +235,8 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("checkTheFormWithInvalidEmailInput")]
         [NUnit.Framework.CategoryAttribute("mytag")]
-        [NUnit.Framework.TestCaseAttribute("Here is my story sdf", "Nick", "fjqgrezlevoopvwgpi", "+3806723424", "Kyiv", "true", null)]
-        public virtual void CheckTheFormWithInvalidEmailInput(string textData, string nameData, string emailData, string conyactNumberData, string locationData, string passed, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("Here is my story sdf", "Nick", "fjqgrezlevoopvwgpi", "+3806723424", "Kyiv", null)]
+        public virtual void CheckTheFormWithInvalidEmailInput(string textData, string nameData, string emailData, string conyactNumberData, string locationData, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "mytag"};
@@ -254,7 +251,6 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("emailData", emailData);
             argumentsOfScenario.Add("conyactNumberData", conyactNumberData);
             argumentsOfScenario.Add("locationData", locationData);
-            argumentsOfScenario.Add("passed", passed);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("checkTheFormWithInvalidEmailInput", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 35
 this.ScenarioInitialize(scenarioInfo);
@@ -283,7 +279,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.When(string.Format("User enter the {0} {1} {2} {3} {4}", textData, nameData, emailData, conyactNumberData, locationData), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 38
- testRunner.Then(string.Format("User can see the form InvalidEmail assert {0}", passed), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("User can see the form InvalidEmail assert", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -292,8 +288,8 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("checkTheFormWithUncheckedTermsOfServiceCheckbox")]
         [NUnit.Framework.CategoryAttribute("mytag")]
-        [NUnit.Framework.TestCaseAttribute("Here is my story sdf", "Nick", "fjqgrezlevoopvwgpi", "+3806723424", "Kyiv", "true", "false", null)]
-        public virtual void CheckTheFormWithUncheckedTermsOfServiceCheckbox(string textData, string nameData, string emailData, string conyactNumberData, string locationData, string passed, string check, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("Here is my story sdfgdgdfg", "Nick", "fjqgrezlevoopvwgpi@nthrw.com", "+3806723424", "Kyiv", "false", null)]
+        public virtual void CheckTheFormWithUncheckedTermsOfServiceCheckbox(string textData, string nameData, string emailData, string conyactNumberData, string locationData, string acceptCheckbox, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "mytag"};
@@ -308,8 +304,7 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("emailData", emailData);
             argumentsOfScenario.Add("conyactNumberData", conyactNumberData);
             argumentsOfScenario.Add("locationData", locationData);
-            argumentsOfScenario.Add("passed", passed);
-            argumentsOfScenario.Add("check", check);
+            argumentsOfScenario.Add("acceptCheckbox", acceptCheckbox);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("checkTheFormWithUncheckedTermsOfServiceCheckbox", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 45
 this.ScenarioInitialize(scenarioInfo);
@@ -335,10 +330,10 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Given("User goes to bbc Stories page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 47
- testRunner.When(string.Format("User enter data wirh unchecked box {0} {1} {2} {3} {4} {5}", textData, nameData, emailData, conyactNumberData, locationData, check), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When(string.Format("User enter data wirh unchecked box {0} {1} {2} {3} {4} {5}", textData, nameData, emailData, conyactNumberData, locationData, acceptCheckbox), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 48
- testRunner.Then(string.Format("User can see the form with UncheckedTermsOfServiceCheckbox assert {0}", passed), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("User can see the form with UncheckedTermsOfServiceCheckbox assert", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -397,8 +392,8 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("checkSecondaryArticlesTitles")]
         [NUnit.Framework.CategoryAttribute("mytag")]
-        [NUnit.Framework.TestCaseAttribute("https://www.bbc.com/news/coronavirus", "WHO warns Covid not over amid Europe case records", "Covid isolation cut to five full days in England", "Beijing urges end to foreign deliveries over Covid", "The puzzle of America\'s record Covid hospital rate", "Banker who quit over Covid breach went to Euros final", null)]
-        public virtual void CheckSecondaryArticlesTitles(string link, string firstArticle, string secondArticle, string thirdArticle, string fourthArticle, string fifthArticle, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("https://www.bbc.com/news/coronavirus", "Call to delay compulsory vaccines for NHS staff", "Ros Atkins On... China\'s zero-Covid dilemma", "0", "3", null)]
+        public virtual void CheckSecondaryArticlesTitles(string link, string topArticle, string underArticle, string positionTop, string positionUnder, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "mytag"};
@@ -409,11 +404,10 @@ this.ScenarioInitialize(scenarioInfo);
             string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("link", link);
-            argumentsOfScenario.Add("firstArticle", firstArticle);
-            argumentsOfScenario.Add("secondArticle", secondArticle);
-            argumentsOfScenario.Add("thirdArticle", thirdArticle);
-            argumentsOfScenario.Add("fourthArticle", fourthArticle);
-            argumentsOfScenario.Add("fifthArticle", fifthArticle);
+            argumentsOfScenario.Add("topArticle", topArticle);
+            argumentsOfScenario.Add("underArticle", underArticle);
+            argumentsOfScenario.Add("positionTop", positionTop);
+            argumentsOfScenario.Add("positionUnder", positionUnder);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("checkSecondaryArticlesTitles", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 66
 this.ScenarioInitialize(scenarioInfo);
@@ -436,13 +430,13 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 67
- testRunner.Given("User goes to bbc covid news", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+testRunner.Given("User goes to covid news", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 68
- testRunner.When(string.Format("User navigates to news {0}", link), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.When(string.Format("User navigates via the {0}", link), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 69
- testRunner.Then(string.Format("User see matcing articles {0} {1} {2} {3} {4}", firstArticle, secondArticle, thirdArticle, fourthArticle, fifthArticle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.Then(string.Format("User se articles \"{0}\" \"{1}\" \"{2}\" \"{3}\"", topArticle, underArticle, positionTop, positionUnder), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

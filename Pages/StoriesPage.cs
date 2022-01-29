@@ -42,11 +42,11 @@ namespace BBC1_task_4._1._1.Pages
 
         public StoriesPage(IWebDriver driver) : base(driver) { }
 
-        public void FillStoriesPageForm(Dictionary<string, string> values, bool acceptNamePublishChecbox, bool acceptTermsOfServiceCheckbox)
+        public void FillStoriesPageForm(Dictionary<string, string> formKeyValuePair, bool acceptNamePublishChecbox, bool acceptTermsOfServiceCheckbox) //Сменить название валью 
         {
             foreach (var element in textBoxForm)
             {
-                var elementValue = values[element.GetAttribute("placeholder")];
+                var elementValue = formKeyValuePair[element.GetAttribute("placeholder")];
                 element.SendKeys(elementValue);
             }
 
@@ -60,39 +60,29 @@ namespace BBC1_task_4._1._1.Pages
         }
 
 
-        public string ValidResultExpectedIsDisplayed()
+        public bool ValidResultExpectedIsDisplayed()
         {
-            if (validResultExpected.Displayed)
-                return "true";
-            else return "false";
+            return validResultExpected.Displayed;
         }
 
-        public string TextareaInvalidAssertIsDisplayed()
+        public bool TextareaInvalidAssertIsDisplayed()
         {
-            if (textareaInvalidAssert.Displayed)
-                return "true";
-            else return "false";
+            return textareaInvalidAssert.Displayed;     
         }
 
-        public string NameInvalidAssertIsDisplayed()
+        public bool NameInvalidAssertIsDisplayed()
         {
-            if (nameInvalidAssert.Displayed)
-                return "true";
-            else return "false";
+            return nameInvalidAssert.Displayed;      
         }
 
-        public string EmailInvalidAsserttIsDisplayed()
+        public bool EmailInvalidAsserttIsDisplayed()
         {
-            if (emailInvalidAssert.Displayed)
-                return "true";
-            else return "false";
+            return emailInvalidAssert.Displayed;
         }
 
-        public string InvalidTermsOfServiceCheckboxAssertIsDisplayed()
+        public bool InvalidTermsOfServiceCheckboxAssertIsDisplayed()
         {
-            if (invalidTermsOfServiceCheckboxAssert.Displayed)
-                return "true";
-            else return "false";
+            return invalidTermsOfServiceCheckboxAssert.Displayed;
         }
     }
 }

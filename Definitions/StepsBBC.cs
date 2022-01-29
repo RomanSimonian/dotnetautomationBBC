@@ -10,13 +10,6 @@ namespace BBC1_task_4._1._1.Definitions
     [Binding]
     public class StepsBBC : BaseStepDefinition
     {
-        ////ValidDataForFormInputs
-        //private readonly string textData = "Here is my story sdfsdfsdfsdfdfsdfs";
-        //private readonly string nameData = "Nick";
-        //private readonly string emailData = "fjqgrezlevoopvwgpi@nthrw.com";
-        //private readonly string conyactNumberData = "+3806723424";
-        //private readonly string locationData = "Kyiv";
-
         //empty fields
         private readonly string storyField = "Tell us your story. ";
         private readonly string nameField = "Name";
@@ -49,36 +42,38 @@ namespace BBC1_task_4._1._1.Definitions
             storiesPage.FillStoriesPageForm(inputData, acceptCheckbox, acceptCheckbox);
         }
 
-        [Then(@"User can see the form is (.*)")]
-        public void ThenUserCanSeeTheFormIs(string message)
+        [Then(@"User can see the form passed")]
+        public void ThenUserCanSeeTheFormPassed()
         {
             storiesPage.ImplicitWait(30);
-            Assert.IsTrue(storiesPage.ValidResultExpectedIsDisplayed().Contains(message));
+            Assert.IsTrue(storiesPage.ValidResultExpectedIsDisplayed());
         }
 
-        [Then(@"User can see the form InvalidText assert (.*)")]
-        public void ThenUserCanSeeTheFormInvalidTextAssert(string message)
+        [Then(@"User can see the form InvalidText assert")]
+        public void ThenUserCanSeeTheFormInvalidTextAssert()
         {
             storiesPage.ImplicitWait(30);
-            Assert.IsTrue(storiesPage.TextareaInvalidAssertIsDisplayed().Contains(message));
+            Assert.IsTrue(storiesPage.TextareaInvalidAssertIsDisplayed());
         }
 
-        [Then(@"User can see the form InvalidName assert (.*)")]
-        public void ThenUserCanSeeTheFormInvalidNameAssert(string message)
+
+        [Then(@"User can see the form InvalidName assert")]
+        public void ThenUserCanSeeTheFormInvalidNameAssert()
         {
             storiesPage.ImplicitWait(30);
-            Assert.IsTrue(storiesPage.NameInvalidAssertIsDisplayed().Contains(message));
+            Assert.IsTrue(storiesPage.NameInvalidAssertIsDisplayed());
         }
 
-        [Then(@"User can see the form InvalidEmail assert (.*)")]
-        public void ThenUserCanSeeTheFormInvalidEmailAssert(string message)
+        [Then(@"User can see the form InvalidEmail assert")]
+        public void ThenUserCanSeeTheFormInvalidEmailAssert()
         {
             storiesPage.ImplicitWait(30);
-            Assert.IsTrue(storiesPage.EmailInvalidAsserttIsDisplayed().Contains(message));
+            Assert.IsTrue(storiesPage.EmailInvalidAsserttIsDisplayed());
         }
+
 
         [When(@"User enter data wirh unchecked box (.*) (.*) (.*) (.*) (.*) (.*)")]
-        public void WhenUserEnterDataWirhUncheckedBox(string textData, string nameData, string emailData, string conyactNumberData, string locationData, string check)
+        public void WhenUserEnterDataWirhUncheckedBox(string textData, string nameData, string emailData, string conyactNumberData, string locationData, bool check)
         {
             var inputData = new Dictionary<string, string>()
            {
@@ -89,18 +84,15 @@ namespace BBC1_task_4._1._1.Definitions
                {locationField, locationData },
            };
 
-            if(check=="tree")
-                storiesPage.FillStoriesPageForm(inputData, acceptCheckbox, acceptCheckbox);
-            else storiesPage.FillStoriesPageForm(inputData, acceptCheckbox, declineCheckbox);
+           storiesPage.FillStoriesPageForm(inputData, acceptCheckbox, check);
         }
 
-        [Then(@"User can see the form with UncheckedTermsOfServiceCheckbox assert (.*)")]
-        public void ThenUserCanSeeTheFormWithUncheckedTermsOfServiceCheckboxAssert(string message)
+        [Then(@"User can see the form with UncheckedTermsOfServiceCheckbox assert")]
+        public void ThenUserCanSeeTheFormWithUncheckedTermsOfServiceCheckboxAssert()
         {
             storiesPage.ImplicitWait(30);
-            Assert.IsTrue(storiesPage.InvalidTermsOfServiceCheckboxAssertIsDisplayed().Contains(message));
+            Assert.IsTrue(storiesPage.InvalidTermsOfServiceCheckboxAssertIsDisplayed());
         }
-
 
         [Given(@"User goes to bbc Home page")]
         public void GivenUserGoesToBbcHomePage()
@@ -120,25 +112,29 @@ namespace BBC1_task_4._1._1.Definitions
             Assert.IsTrue(homePage.AreHeadlineArticleNameMach(expected));
         }
 
-
-        [Given(@"User goes to bbc covid news")]
-        public void GivenUserGoesToBbcCovidNews()
+        [Given(@"User goes to covid news")]
+        public void GivenUserGoesToCovidNews()
         {
             covidNewsPage = new CovidNewsPage(driver);
         }
 
-        [When(@"User navigates to news (.*)")]
-        public void WhenUserNavigatesToNews(string link)
+        [When(@"User navigates via the (.*)")]
+        public void WhenUserNavigatesViaThe(string link)
         {
             driver.Navigate().GoToUrl(link);
         }
 
-        [Then(@"User see matcing articles (.*) (.*) (.*) (.*) (.*)")]
-        public void ThenUserSeeMatcingArticles(string firstArticle, string secondArticle, string thirdArticle, string fourthArticle, string fifthArticle)
+        [Then(@"User se articles ""(.*)"" ""(.*)"" ""(.*)"" ""(.*)""")]
+        public void ThenUserSeArticles(string firstArticle, string underTheFirstArticle, int firstArticlePos, int underTheFirstPos)
         {
-            Assert.IsTrue(covidNewsPage.AreSecondaryArticlesMatch(firstArticle, secondArticle, thirdArticle, fourthArticle, fifthArticle));
-        }
+            var expectedHeadersList = new Dictionary<int, string>
+            {
+                { firstArticlePos, firstArticle},
+                {underTheFirstPos,underTheFirstArticle }
+            };
 
+            Assert.IsTrue(covidNewsPage.AreSecondaryArticlesMatch(expectedHeadersList));
+        }
     }
 }
 
