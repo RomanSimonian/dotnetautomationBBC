@@ -1,5 +1,5 @@
 ﻿using OpenQA.Selenium;
-
+using System;
 
 namespace BBC1_Project.PageObjects
 {
@@ -70,6 +70,20 @@ namespace BBC1_Project.PageObjects
             _webDriver.FindElement(_checkboxIaccept).Click();
             _webDriver.FindElement(_submitButton).Click();
             return _webDriver.FindElement(_errorMessage).Text;
+        }
+        public string FillOutTheFormWithout(string withoutString)
+        {
+            switch(withoutString)
+            {
+                case "question":
+                    return FillTheFormWithInformationNotQuestion();
+                case "accept":
+                    return FillTheFormWithInformationNotAccept();
+                case "email":
+                    return FillTheFormWithInformationNotEmail();
+                default:
+                    throw new Exception("Incorrect value");
+            }
         }
 
 

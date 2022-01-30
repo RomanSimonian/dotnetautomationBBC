@@ -110,8 +110,8 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.When("User click to the News", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 10
- testRunner.Then("User checks the title of the main article with \'\'Bombogenesis\' snowstorm sweeping" +
-                        " US East Coast\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("User checks the title of the main article with \'North Korea tests biggest missile" +
+                        " since 2017\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -153,7 +153,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.When("User click to the News", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 16
- testRunner.Then(@"User checks actual list secondary article titles with expected [""Invasion of Ukraine would be 'horrific', US warns"", ""Hong Kong workers cover up Tiananmen memorial"",""Gun used by Kyle Rittenhouse to be destroyed"", ""Joni Mitchell wants songs off Spotify in Covid row"", ""The British hymn causing a stir in India""]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then(@"User checks actual list secondary article titles with expected list [""Invasion of Ukraine would be 'horrific',US warns"",""Hong Kong workers cover up Tiananmen memorial"",""Gun used by Kyle Rittenhouse to be destroyed"",""Joni Mitchell wants songs off Spotify in Covid row"",""The British hymn causing a stir in India""]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -168,7 +168,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "mytag"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Checks the name of the first article by search category", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 19
+#line 20
  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -188,15 +188,15 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 20
+#line 21
  testRunner.Given("User opens \'https://www.bbc.com/\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 21
+#line 22
  testRunner.When("User click to the News", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 22
- testRunner.Then("User checks the name of the first article with \'Family who died in freezing cold " +
-                        "by US-Canada border identified\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 23
+ testRunner.Then("User checks the name of the first article with \'China applies to join key Asia-Pa" +
+                        "cific trade pact\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -205,8 +205,10 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Check the form to ask questions without questions")]
         [NUnit.Framework.CategoryAttribute("mytag")]
-        [NUnit.Framework.TestCaseAttribute("https://www.bbc.com/", "can\'t be blank", null)]
-        public virtual void CheckTheFormToAskQuestionsWithoutQuestions(string url, string errorMessage, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("https://www.bbc.com/", "question", "can\'t be blank", null)]
+        [NUnit.Framework.TestCaseAttribute("https://www.bbc.com/", "accept", "must be accepted", null)]
+        [NUnit.Framework.TestCaseAttribute("https://www.bbc.com/", "email", "Email address can\'t be blank", null)]
+        public virtual void CheckTheFormToAskQuestionsWithoutQuestions(string url, string field, string message, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "mytag"};
@@ -217,9 +219,10 @@ this.ScenarioInitialize(scenarioInfo);
             string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("url", url);
-            argumentsOfScenario.Add("errorMessage", errorMessage);
+            argumentsOfScenario.Add("field", field);
+            argumentsOfScenario.Add("message", message);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Check the form to ask questions without questions", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 25
+#line 26
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -239,23 +242,23 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 26
+#line 27
  testRunner.Given(string.Format("User opens \'{0}\'", url), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 27
+#line 28
  testRunner.When("User click to the News", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 28
+#line 29
  testRunner.And("User chooses Coronavirus news", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 29
+#line 30
  testRunner.And("User choses Coronavirus stories", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 30
+#line 31
  testRunner.And("User choses ask questions", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 31
- testRunner.Then(string.Format("Filled out the form without question and corrected the error \'{0}\'", errorMessage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 32
+ testRunner.Then(string.Format("Filled out the form witout \'{0}\' and corrected the error \'{1}\'", field, message), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
