@@ -13,7 +13,7 @@ Scenario: Checks the name of the headline article
 Scenario: Checks secondary article titles
 	Given User opens 'https://www.bbc.com/'
 	When User click to the News
-	Then User checks actual list secondary article titles with expected list ["Invasion of Ukraine would be 'horrific',US warns","Hong Kong workers cover up Tiananmen memorial","Gun used by Kyle Rittenhouse to be destroyed","Joni Mitchell wants songs off Spotify in Covid row","The British hymn causing a stir in India"]
+	Then User checks actual list secondary article titles with expected list
 	
 
  @mytag
@@ -36,5 +36,5 @@ Scenario Outline: Check the form to ask questions without questions
       | https://www.bbc.com/ | question      | can't be blank               |
       | https://www.bbc.com/ | accept        | must be accepted             |
       | https://www.bbc.com/ | email         | Email address can't be blank |
-                                          
+      | https://www.bbc.com/ | name          | Name can't be blank          |                                   
                                                                                                                                      

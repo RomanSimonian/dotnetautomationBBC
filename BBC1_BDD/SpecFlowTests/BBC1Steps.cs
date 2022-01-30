@@ -47,12 +47,12 @@ namespace BBC1_BDD.SpecFlowTests
             var newsPage = new NewsPage(_webDriver);
             newsPage.GetTextHeadlineArticles().Should().ContainEquivalentOf(text);
         }
-       
-        [Then(@"User checks actual list secondary article titles with expected list \[""(.*)"",""(.*)"",""(.*)"",""(.*)"",""(.*)""]")]
-        public void ThenUserChecksActualListSecondaryArticleTitlesWithExpected(string art1, string art2, string art3, string art4, string art5)
+
+        [Then(@"User checks actual list secondary article titles with expected list")]
+        public void ThenUserChecksActualListSecondaryArticleTitlesWithExpectedList()
         {
             var newsPage = new NewsPage(_webDriver);
-            newsPage.GetAllSecondaryArticleTitles().Should().Equal(new List<String>() { art1, art2, art3, art4, art5 });
+            newsPage.GetAllSecondaryArticleTitles().Should().BeEquivalentTo(newsPage.ExpectedSecondaryArticles);
         }
 
         [Then(@"User checks the name of the first article with '(.*)'")]

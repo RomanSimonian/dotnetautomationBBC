@@ -153,7 +153,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.When("User click to the News", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 16
- testRunner.Then(@"User checks actual list secondary article titles with expected list [""Invasion of Ukraine would be 'horrific',US warns"",""Hong Kong workers cover up Tiananmen memorial"",""Gun used by Kyle Rittenhouse to be destroyed"",""Joni Mitchell wants songs off Spotify in Covid row"",""The British hymn causing a stir in India""]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("User checks actual list secondary article titles with expected list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -208,6 +208,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestCaseAttribute("https://www.bbc.com/", "question", "can\'t be blank", null)]
         [NUnit.Framework.TestCaseAttribute("https://www.bbc.com/", "accept", "must be accepted", null)]
         [NUnit.Framework.TestCaseAttribute("https://www.bbc.com/", "email", "Email address can\'t be blank", null)]
+        [NUnit.Framework.TestCaseAttribute("https://www.bbc.com/", "name", "Name can\'t be blank", null)]
         public virtual void CheckTheFormToAskQuestionsWithoutQuestions(string url, string field, string message, string[] exampleTags)
         {
             string[] @__tags = new string[] {

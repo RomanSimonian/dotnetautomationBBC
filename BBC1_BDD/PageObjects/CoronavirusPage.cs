@@ -71,9 +71,21 @@ namespace BBC1_Project.PageObjects
             _webDriver.FindElement(_submitButton).Click();
             return _webDriver.FindElement(_errorMessage).Text;
         }
+        public string FillTheFormWithInformationNotName()
+        {
+            ((IJavaScriptExecutor)_webDriver).ExecuteScript("javascript:window.scrollBy(0,1200)");
+            _webDriver.FindElement(_inputQuestion).SendKeys("OK");
+            _webDriver.FindElement(_inputEmailAdress).SendKeys("Alex@ukr.net");
+            _webDriver.FindElement(_inputContactNumber).SendKeys("12345678");
+            _webDriver.FindElement(_inputLocation).SendKeys("USA");
+            _webDriver.FindElement(_inputAge).SendKeys("100");
+            _webDriver.FindElement(_checkboxIaccept).Click();
+            _webDriver.FindElement(_submitButton).Click();
+            return _webDriver.FindElement(_errorMessage).Text;
+        }
         public string FillOutTheFormWithout(string withoutString)
         {
-            switch(withoutString)
+            switch (withoutString)
             {
                 case "question":
                     return FillTheFormWithInformationNotQuestion();
@@ -81,6 +93,8 @@ namespace BBC1_Project.PageObjects
                     return FillTheFormWithInformationNotAccept();
                 case "email":
                     return FillTheFormWithInformationNotEmail();
+                case "name":
+                    return FillTheFormWithInformationNotName();
                 default:
                     throw new Exception("Incorrect value");
             }
