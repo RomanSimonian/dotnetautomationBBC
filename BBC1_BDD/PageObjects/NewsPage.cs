@@ -8,14 +8,6 @@ namespace BBC1_Project.PageObjects
     public class NewsPage : BasePage
     {
         private readonly List<String> articles = new List<string>();
-        private List<string> _expectedSecondaryArticles = new List<string>
-        {
-            "US East Coast hit with blizzards in heavy snowstorm",
-            "UK troops 'unlikely' to fight in Ukraine - Truss",
-            "The truckers shutting down Canada's capital",
-            "Irish PM lays wreath at Bloody Sunday memorial"
-        };
-        public List<string> ExpectedSecondaryArticles => _expectedSecondaryArticles;
 
         private readonly By _headlineArticle = By.XPath("//div[@data-entityid='container-top-stories#1']");
         private readonly By _secondaryArticles = By.XPath("//div[contains(@class,'stories__secondary')]//a[contains(@class,'heading')]//h3");

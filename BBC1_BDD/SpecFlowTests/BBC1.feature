@@ -14,8 +14,14 @@ Scenario: Checks secondary article titles
 	Given User opens 'https://www.bbc.com/'
 	When User click to the News
 	Then User checks actual list secondary article titles with expected list
-	
 
+	| articles  | titles                                              |
+    | article 1 | N Korea releases space photos taken from missile    |
+    | article 2 | 'We're ready' say Ukraine troops, dug into trenches |
+    | article 3 | NZ responds to pregnant reporter helped by Taliban  |
+    | article 4 | Manhunt after German police officers shot dead      |
+    | article 5 | Joe Rogan pledges to try harder after Spotify row   |
+	
  @mytag
  Scenario:  Checks the name of the first article by search category 
 	Given User opens 'https://www.bbc.com/'

@@ -1,11 +1,11 @@
 ﻿using BBC1_Project.PageObjects;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using NUnit.Framework;
 using System;
 using TechTalk.SpecFlow;
 using FluentAssertions;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BBC1_BDD.SpecFlowTests
 {
@@ -49,10 +49,20 @@ namespace BBC1_BDD.SpecFlowTests
         }
 
         [Then(@"User checks actual list secondary article titles with expected list")]
-        public void ThenUserChecksActualListSecondaryArticleTitlesWithExpectedList()
+        public void ThenUserChecksActualListSecondaryArticleTitlesWithExpectedList(Table table)
         {
             var newsPage = new NewsPage(_webDriver);
-            newsPage.GetAllSecondaryArticleTitles().Should().BeEquivalentTo(newsPage.ExpectedSecondaryArticles);
+            newsPage.GetAllSecondaryArticleTitles().Should().BeEquivalentTo(ToDictionary(table).Values.ToList<string>());
+        }
+
+        public static Dictionary<string, string> ToDictionary(Table table)
+        {
+            var dictionary = new Dictionary<string, string>();
+            foreach (var row in table.Rows)
+            {
+                dictionary.Add(row[0], row[1]);
+            }
+            return dictionary;
         }
 
         [Then(@"User checks the name of the first article with '(.*)'")]
