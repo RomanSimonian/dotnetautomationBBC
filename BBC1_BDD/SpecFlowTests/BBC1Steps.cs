@@ -52,17 +52,7 @@ namespace BBC1_BDD.SpecFlowTests
         public void ThenUserChecksActualListSecondaryArticleTitlesWithExpectedList(Table table)
         {
             var newsPage = new NewsPage(_webDriver);
-            newsPage.GetAllSecondaryArticleTitles().Should().BeEquivalentTo(ToDictionary(table).Values.ToList<string>());
-        }
-
-        public static Dictionary<string, string> ToDictionary(Table table)
-        {
-            var dictionary = new Dictionary<string, string>();
-            foreach (var row in table.Rows)
-            {
-                dictionary.Add(row[0], row[1]);
-            }
-            return dictionary;
+            newsPage.GetAllSecondaryArticleTitles().Should().BeEquivalentTo(newsPage.ToDictionary(table).Values.ToList<string>());
         }
 
         [Then(@"User checks the name of the first article with '(.*)'")]
