@@ -37,11 +37,11 @@ namespace BBC1_Project.PageObjects
         public string FillTheFormWithInformationNotQuestion()
         {
             ((IJavaScriptExecutor)_webDriver).ExecuteScript("javascript:window.scrollBy(0,1200)");
-            _webDriver.FindElement(_inputName).SendKeys("Alex");
-            _webDriver.FindElement(_inputEmailAdress).SendKeys("Alex@ukr.net");
-            _webDriver.FindElement(_inputContactNumber).SendKeys("12345678");
-            _webDriver.FindElement(_inputLocation).SendKeys("USA");
-            _webDriver.FindElement(_inputAge).SendKeys("100");
+            _webDriver.FindElement(_inputName).SendKeys(Name);
+            _webDriver.FindElement(_inputEmailAdress).SendKeys(Email);
+            _webDriver.FindElement(_inputContactNumber).SendKeys(Number);
+            _webDriver.FindElement(_inputLocation).SendKeys(Location);
+            _webDriver.FindElement(_inputAge).SendKeys(Age);
             _webDriver.FindElement(_checkboxIaccept).Click();
             _webDriver.FindElement(_submitButton).Click();
             return _webDriver.FindElement(_errorMessage).Text;
@@ -49,12 +49,12 @@ namespace BBC1_Project.PageObjects
         public string FillTheFormWithInformationNotAccept()
         {
             ((IJavaScriptExecutor)_webDriver).ExecuteScript("javascript:window.scrollBy(0,1200)");
-            _webDriver.FindElement(_inputQuestion).SendKeys("OK");
-            _webDriver.FindElement(_inputName).SendKeys("Alex");
-            _webDriver.FindElement(_inputEmailAdress).SendKeys("Alex@ukr.net");
-            _webDriver.FindElement(_inputContactNumber).SendKeys("12345678");
-            _webDriver.FindElement(_inputLocation).SendKeys("USA");
-            _webDriver.FindElement(_inputAge).SendKeys("100");
+            _webDriver.FindElement(_inputQuestion).SendKeys(Question);
+            _webDriver.FindElement(_inputName).SendKeys(Name);
+            _webDriver.FindElement(_inputEmailAdress).SendKeys(Email);
+            _webDriver.FindElement(_inputContactNumber).SendKeys(Number);
+            _webDriver.FindElement(_inputLocation).SendKeys(Location);
+            _webDriver.FindElement(_inputAge).SendKeys(Age);
             _webDriver.FindElement(_submitButton).Click();
             return _webDriver.FindElement(_errorMessage).Text;
         }
@@ -62,27 +62,29 @@ namespace BBC1_Project.PageObjects
         public string FillTheFormWithInformationNotEmail()
         {
             ((IJavaScriptExecutor)_webDriver).ExecuteScript("javascript:window.scrollBy(0,1200)");
-            _webDriver.FindElement(_inputQuestion).SendKeys("OK");
-            _webDriver.FindElement(_inputName).SendKeys("Alex");
-            _webDriver.FindElement(_inputContactNumber).SendKeys("12345678");
-            _webDriver.FindElement(_inputLocation).SendKeys("USA");
-            _webDriver.FindElement(_inputAge).SendKeys("100");
+            _webDriver.FindElement(_inputQuestion).SendKeys(Question);
+            _webDriver.FindElement(_inputName).SendKeys(Name);
+            _webDriver.FindElement(_inputContactNumber).SendKeys(Number);
+            _webDriver.FindElement(_inputLocation).SendKeys(Location);
+            _webDriver.FindElement(_inputAge).SendKeys(Age);
             _webDriver.FindElement(_checkboxIaccept).Click();
             _webDriver.FindElement(_submitButton).Click();
             return _webDriver.FindElement(_errorMessage).Text;
         }
+
         public string FillTheFormWithInformationNotName()
         {
             ((IJavaScriptExecutor)_webDriver).ExecuteScript("javascript:window.scrollBy(0,1200)");
-            _webDriver.FindElement(_inputQuestion).SendKeys("OK");
-            _webDriver.FindElement(_inputEmailAdress).SendKeys("Alex@ukr.net");
-            _webDriver.FindElement(_inputContactNumber).SendKeys("12345678");
-            _webDriver.FindElement(_inputLocation).SendKeys("USA");
-            _webDriver.FindElement(_inputAge).SendKeys("100");
+            _webDriver.FindElement(_inputQuestion).SendKeys(Question);
+            _webDriver.FindElement(_inputEmailAdress).SendKeys(Email);
+            _webDriver.FindElement(_inputContactNumber).SendKeys(Number);
+            _webDriver.FindElement(_inputLocation).SendKeys(Location);
+            _webDriver.FindElement(_inputAge).SendKeys(Age);
             _webDriver.FindElement(_checkboxIaccept).Click();
             _webDriver.FindElement(_submitButton).Click();
             return _webDriver.FindElement(_errorMessage).Text;
         }
+
         public string FillOutTheFormWithout(string withoutString)
         {
             switch (withoutString)
@@ -99,9 +101,6 @@ namespace BBC1_Project.PageObjects
                     throw new Exception("Incorrect value");
             }
         }
-
-
-
     }
 }
 
