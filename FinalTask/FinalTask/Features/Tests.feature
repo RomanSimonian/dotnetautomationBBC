@@ -15,6 +15,6 @@
     Then User checks result
 
     Examples: 
-    |question         |  |name      |  |email   |  |number      |  |location    |  |age |
-    |Example question?|  |Bohdan    |  |email   |  |+777777777  |  |Vinnitsa    |  |29  |
-    |Example question?|  |          |  |email   |  |+777777777  |  |Vinnitsa    |  |29  |
+    |question         |  name      |email   |number      |location     |age |
+    |Example question?|  Bohdan    |email   |+777777777  |Vinnitsa     |29  |
+    |Example question?|            |email   |+777777777  |Vinnitsa     |29  |
