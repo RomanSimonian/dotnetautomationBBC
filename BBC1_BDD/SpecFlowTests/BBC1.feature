@@ -29,7 +29,7 @@ Scenario: Checks secondary article titles
 	Then User checks the name of the first article with 'China applies to join key Asia-Pacific trade pact' 
 
 @mytag
-Scenario Outline: Check the form to ask questions without questions
+Scenario Outline: Checks message the form without field
 	Given User opens '<url>'
 	When User click to the News
 	And User chooses Coronavirus news
