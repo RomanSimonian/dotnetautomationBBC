@@ -34,72 +34,20 @@ namespace BBC1_Project.PageObjects
             _webDriver.FindElement(_coronavirusQuestion).Click();
             return this;
         }
-        public string FillTheFormWithInformationNotQuestion()
+        public string FillOutTheFormWithout(string field)
         {
             ((IJavaScriptExecutor)_webDriver).ExecuteScript("javascript:window.scrollBy(0,1200)");
-            _webDriver.FindElement(_inputName).SendKeys(Name);
-            _webDriver.FindElement(_inputEmailAdress).SendKeys(Email);
-            _webDriver.FindElement(_inputContactNumber).SendKeys(Number);
-            _webDriver.FindElement(_inputLocation).SendKeys(Location);
-            _webDriver.FindElement(_inputAge).SendKeys(Age);
-            _webDriver.FindElement(_checkboxIaccept).Click();
-            _webDriver.FindElement(_submitButton).Click();
-            return _webDriver.FindElement(_errorMessage).Text;
-        }
-        public string FillTheFormWithInformationNotAccept()
-        {
-            ((IJavaScriptExecutor)_webDriver).ExecuteScript("javascript:window.scrollBy(0,1200)");
-            _webDriver.FindElement(_inputQuestion).SendKeys(Question);
-            _webDriver.FindElement(_inputName).SendKeys(Name);
-            _webDriver.FindElement(_inputEmailAdress).SendKeys(Email);
-            _webDriver.FindElement(_inputContactNumber).SendKeys(Number);
-            _webDriver.FindElement(_inputLocation).SendKeys(Location);
-            _webDriver.FindElement(_inputAge).SendKeys(Age);
-            _webDriver.FindElement(_submitButton).Click();
-            return _webDriver.FindElement(_errorMessage).Text;
-        }
 
-        public string FillTheFormWithInformationNotEmail()
-        {
-            ((IJavaScriptExecutor)_webDriver).ExecuteScript("javascript:window.scrollBy(0,1200)");
-            _webDriver.FindElement(_inputQuestion).SendKeys(Question);
-            _webDriver.FindElement(_inputName).SendKeys(Name);
-            _webDriver.FindElement(_inputContactNumber).SendKeys(Number);
-            _webDriver.FindElement(_inputLocation).SendKeys(Location);
-            _webDriver.FindElement(_inputAge).SendKeys(Age);
-            _webDriver.FindElement(_checkboxIaccept).Click();
+            if (field != "question") _webDriver.FindElement(_inputQuestion).SendKeys(Question);
+            if (field != "name") _webDriver.FindElement(_inputName).SendKeys(Name);
+            if (field != "email") _webDriver.FindElement(_inputEmailAdress).SendKeys(Email);
+            if (field != "number") _webDriver.FindElement(_inputContactNumber).SendKeys(Number);
+            if (field != "location") _webDriver.FindElement(_inputLocation).SendKeys(Location);
+            if (field != "age") _webDriver.FindElement(_inputAge).SendKeys(Age);
+            if (field != "accept") _webDriver.FindElement(_checkboxIaccept).Click();
+
             _webDriver.FindElement(_submitButton).Click();
             return _webDriver.FindElement(_errorMessage).Text;
-        }
-
-        public string FillTheFormWithInformationNotName()
-        {
-            ((IJavaScriptExecutor)_webDriver).ExecuteScript("javascript:window.scrollBy(0,1200)");
-            _webDriver.FindElement(_inputQuestion).SendKeys(Question);
-            _webDriver.FindElement(_inputEmailAdress).SendKeys(Email);
-            _webDriver.FindElement(_inputContactNumber).SendKeys(Number);
-            _webDriver.FindElement(_inputLocation).SendKeys(Location);
-            _webDriver.FindElement(_inputAge).SendKeys(Age);
-            _webDriver.FindElement(_checkboxIaccept).Click();
-            _webDriver.FindElement(_submitButton).Click();
-            return _webDriver.FindElement(_errorMessage).Text;
-        }
-
-        public string FillOutTheFormWithout(string withoutString)
-        {
-            switch (withoutString)
-            {
-                case "question":
-                    return FillTheFormWithInformationNotQuestion();
-                case "accept":
-                    return FillTheFormWithInformationNotAccept();
-                case "email":
-                    return FillTheFormWithInformationNotEmail();
-                case "name":
-                    return FillTheFormWithInformationNotName();
-                default:
-                    throw new Exception("Incorrect value");
-            }
         }
     }
 }
