@@ -8,8 +8,6 @@ namespace BBC1_Project.PageObjects
 {
     public class NewsPage : BasePage
     {
-        private readonly List<String> articles = new List<string>();
-
         private readonly By _headlineArticle = By.XPath("//div[@data-entityid='container-top-stories#1']");
         private readonly By _secondaryArticles = By.XPath("//div[contains(@class,'stories__secondary')]//a[contains(@class,'heading')]//h3");
         private readonly By _categoryHeadlineArticle = By.XPath("(//a[contains(@class,'section-link')])[1]");
