@@ -59,5 +59,21 @@ namespace TestProject.StepDefinitions
 		{
 			Assert.IsTrue(MyCoronavirusStory_Page.GetErrorMessage().Contains(error));
 		}
+
+
+
+		[When(@"User enter the text of the Category link of headline article")]
+		public void WhenUserEnterTheTextOfTheCategoryLinkOfHeadlineArticle()
+		{
+			News_Page.SearchByWord(News_Page.GetTextOfHeadline(0));
+		}
+
+		[Then(@"User check the name of the first article against a text of headline article")]
+		public void ThenUserCheckTheNameOfTheFirstArticleAgainstATextOfHeadlineArticle()
+		{
+			string notExcepted = SearchResult_Page.GetTextOfSearchResultElement(0);
+			string excepted = News_Page.GetTextOfHeadline(0);
+			Assert.IsTrue(notExcepted.Equals(excepted));
+		}
 	}
 }

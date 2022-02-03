@@ -22,9 +22,10 @@
 	|Example none?	|Bohdan		|		|+777777777	|Vinnitsa	|29  |Email address can't be blank	|
 
 
-  Scenario: 
+
+  @Smoke
+  Scenario: User checks the name of the first article against a text of headline article on the Search Page results
 	Given User opens homepage page BBC
 	When User clicks on News tab 
-	And User stores the text of the Category link of headline article 
-	And User enter this text in the Search bar
+	And User enter the text of the Category link of headline article 
 	Then User check the name of the first article against a text of headline article
