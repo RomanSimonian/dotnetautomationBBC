@@ -21,7 +21,7 @@ namespace BBC1_Project.PageObjects
             return _webDriver.FindElement(_headlineArticle).GetAttribute("outerText").Split("\n")[0];
         }
 
-        public List<String> GetAllSecondaryArticleTitles()
+        public List<string> GetAllSecondaryArticleTitles()
         {
             return _webDriver.FindElements(_secondaryArticles).Select(x => x.GetAttribute("innerText")).ToList();
         }
