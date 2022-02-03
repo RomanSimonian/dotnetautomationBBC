@@ -1,6 +1,7 @@
 ﻿using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using TechTalk.SpecFlow;
 
 namespace BBC1_Project.PageObjects
@@ -24,12 +25,7 @@ namespace BBC1_Project.PageObjects
 
         public List<String> GetAllSecondaryArticleTitles()
         {
-        foreach (var item in _webDriver.FindElements(_secondaryArticles))
-        {
-            articles.Add(item.GetAttribute("innerText"));
-        }
-        Console.WriteLine(articles);
-        return articles;
+            return _webDriver.FindElements(_secondaryArticles).Select(x => x.GetAttribute("innerText")).ToList();
         }
         public string GetCategoryHeadlineArticle()
         {
