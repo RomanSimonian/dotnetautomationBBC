@@ -7,7 +7,7 @@ So that I can be sure that site works correctly
 Scenario: Checks the name of the headline article
 	Given User opens 'https://www.bbc.com/'
 	When User click to the News
-	Then User checks the title of the main article with 'North Korea tests biggest missile since 2017'
+	Then User checks the title of the main article with 'US troop increase in Europe destructive - Russia'
 
 @mytag
 Scenario: Checks secondary article titles
@@ -15,18 +15,18 @@ Scenario: Checks secondary article titles
 	When User click to the News
 	Then User checks actual list secondary article titles with expected list
 
-	| articles  | titles                                              |
-    | article 1 | N Korea releases space photos taken from missile    |
-    | article 2 | 'We're ready' say Ukraine troops, dug into trenches |
-    | article 3 | NZ responds to pregnant reporter helped by Taliban  |
-    | article 4 | Manhunt after German police officers shot dead      |
-    | article 5 | Joe Rogan pledges to try harder after Spotify row   |
+	| articles  | titles                                             |
+    | article 1 | Havana Syndrome may be caused by ‘directed energy’ |
+    | article 2 | Life inside the Beijing Winter Olympics bubble     |
+    | article 3 | The illegal Brazilian gold you may be wearing      |
+    | article 4 | US commandos in major raid in north-west Syria     |
+    | article 5 | Iran accused in anti-Israel fake social media plot |
 	
  @mytag
  Scenario:  Checks the name of the first article by search category 
 	Given User opens 'https://www.bbc.com/'
 	When User click to the News
-	Then User checks the name of the first article with 'China applies to join key Asia-Pacific trade pact' 
+	Then User checks the name of the first article with 'Europe: Strangers on My Doorstep' 
 
 @mytag
 Scenario Outline: Checks message the form without field

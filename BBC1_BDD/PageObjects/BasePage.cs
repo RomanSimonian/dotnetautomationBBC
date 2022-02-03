@@ -13,7 +13,7 @@ namespace BBC1_Project.PageObjects
         private readonly By _closeWindowRegistration = By.XPath("//button[@class='tp-close tp-active']");
         private readonly Dictionary<string, string> form = new Dictionary<string, string>()
         {
-            {"Question","ok" },
+            {"Question","My question" },
             {"Name", "Alex" },
             {"Email","Alex@ukr.net" },
             {"Number","12345678" },

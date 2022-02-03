@@ -110,8 +110,8 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.When("User click to the News", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 10
- testRunner.Then("User checks the title of the main article with \'North Korea tests biggest missile" +
-                        " since 2017\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("User checks the title of the main article with \'US troop increase in Europe destr" +
+                        "uctive - Russia\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -157,19 +157,19 @@ this.ScenarioInitialize(scenarioInfo);
                             "titles"});
                 table1.AddRow(new string[] {
                             "article 1",
-                            "N Korea releases space photos taken from missile"});
+                            "Havana Syndrome may be caused by ‘directed energy’"});
                 table1.AddRow(new string[] {
                             "article 2",
-                            "\'We\'re ready\' say Ukraine troops, dug into trenches"});
+                            "Life inside the Beijing Winter Olympics bubble"});
                 table1.AddRow(new string[] {
                             "article 3",
-                            "NZ responds to pregnant reporter helped by Taliban"});
+                            "The illegal Brazilian gold you may be wearing"});
                 table1.AddRow(new string[] {
                             "article 4",
-                            "Manhunt after German police officers shot dead"});
+                            "US commandos in major raid in north-west Syria"});
                 table1.AddRow(new string[] {
                             "article 5",
-                            "Joe Rogan pledges to try harder after Spotify row"});
+                            "Iran accused in anti-Israel fake social media plot"});
 #line 16
  testRunner.Then("User checks actual list secondary article titles with expected list", ((string)(null)), table1, "Then ");
 #line hidden
@@ -213,21 +213,21 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.When("User click to the News", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 29
- testRunner.Then("User checks the name of the first article with \'China applies to join key Asia-Pa" +
-                        "cific trade pact\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("User checks the name of the first article with \'Europe: Strangers on My Doorstep\'" +
+                        "", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Check the form to ask questions without questions")]
+        [NUnit.Framework.DescriptionAttribute("Checks message the form without field")]
         [NUnit.Framework.CategoryAttribute("mytag")]
         [NUnit.Framework.TestCaseAttribute("https://www.bbc.com/", "question", "can\'t be blank", null)]
         [NUnit.Framework.TestCaseAttribute("https://www.bbc.com/", "accept", "must be accepted", null)]
         [NUnit.Framework.TestCaseAttribute("https://www.bbc.com/", "email", "Email address can\'t be blank", null)]
         [NUnit.Framework.TestCaseAttribute("https://www.bbc.com/", "name", "Name can\'t be blank", null)]
-        public virtual void CheckTheFormToAskQuestionsWithoutQuestions(string url, string field, string message, string[] exampleTags)
+        public virtual void ChecksMessageTheFormWithoutField(string url, string field, string message, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "mytag"};
@@ -240,7 +240,7 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("url", url);
             argumentsOfScenario.Add("field", field);
             argumentsOfScenario.Add("message", message);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Check the form to ask questions without questions", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Checks message the form without field", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 32
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
