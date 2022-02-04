@@ -45,13 +45,13 @@ namespace BBC.main
 
         public ScoreBoard GetScoreBoard() { return new ScoreBoard(GetDriver()); }
 
-        public ChampionsLeague GetChampionsLeague() { return new ChampionsLeague(GetDriver()); }
+        public ChampionsLeaguePage GetChampionsLeague() { return new ChampionsLeaguePage(GetDriver()); }
 
-        public LeagueOne GetLeagueOne() { return new LeagueOne(GetDriver()); }
+        public LeagueOnePage GetLeagueOne() { return new LeagueOnePage(GetDriver()); }
 
-        public PremierLeague GetPremierLeague() { return new PremierLeague(GetDriver()); }
+        public PremierLeaguePage GetPremierLeague() { return new PremierLeaguePage(GetDriver()); }
 
-        public ScottishLeague GetScottishLeague() { return new ScottishLeague(GetDriver()); }
+        public ScottishLeaguePage GetScottishLeague() { return new ScottishLeaguePage(GetDriver()); }
 
     }
 }

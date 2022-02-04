@@ -4,7 +4,7 @@ using SeleniumExtras.PageObjects;
 
 namespace BBC.FootballLeaguesPages
 {
-    public class ChampionsLeague : BasePage
+    public class ScottishLeaguePage : BasePage
     {
         [FindsBy(How = How.XPath, Using = "//a[text()='Scores & Fixtures']")]
         private IWebElement goToScoresAndFixtures;
@@ -12,18 +12,17 @@ namespace BBC.FootballLeaguesPages
         [FindsBy(How = How.XPath, Using = "//button[@aria-label='previous']")]
         private IWebElement goToPrevious;
 
-        [FindsBy(How = How.XPath, Using = "//a[@href='/sport/football/champions-league/scores-fixtures/2021-09']")]
-        private IWebElement selectSeptembet;
+        [FindsBy(How = How.XPath, Using = "//a[@href='/sport/football/scottish-league-cup/scores-fixtures/2021-07']")]
+        private IWebElement selectJuly;
 
+       
 
-
-
-        public void ClickSelectJuly() { selectSeptembet.Click(); }
+        public void ClickSelectJuly() { selectJuly.Click(); }
 
         public void ClickGoToPrevious() { goToPrevious.Click(); }
 
         public void ClickOnGoToScoresAndFixtures() { goToScoresAndFixtures.Click(); }
 
-        public ChampionsLeague(WebDriver driver) : base(driver) { }
+        public ScottishLeaguePage(WebDriver driver) : base(driver) { }
     }
 }

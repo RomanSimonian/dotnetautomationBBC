@@ -74,10 +74,10 @@ namespace SpecFlowLoremIpsum.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("User check")]
+        [NUnit.Framework.DescriptionAttribute("User check paragraph include words")]
         [NUnit.Framework.CategoryAttribute("tag")]
-        [NUnit.Framework.TestCaseAttribute("https://www.lipsum.com/", "рыба", "Pyccкий", null)]
-        public virtual void UserCheck(string homePage, string word, string language, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("https://www.lipsum.com/", "рыба", "Pyccкий", "1", null)]
+        public virtual void UserCheckParagraphIncludeWords(string homePage, string word, string language, string numberOfParagraph, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "tag"};
@@ -90,7 +90,8 @@ namespace SpecFlowLoremIpsum.Features
             argumentsOfScenario.Add("homePage", homePage);
             argumentsOfScenario.Add("word", word);
             argumentsOfScenario.Add("language", language);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User check", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            argumentsOfScenario.Add("numberOfParagraph", numberOfParagraph);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User check paragraph include words", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 4
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -121,7 +122,7 @@ testRunner.And("User checks buttons language visibility", ((string)(null)), ((Te
 testRunner.When(string.Format("User clicks on button \'{0}\'", language), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 8
-testRunner.Then(string.Format("User checks first paragraph include \'{0}\'", word), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.Then(string.Format("User checks {0} include \'{1}\'", numberOfParagraph, word), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -130,8 +131,8 @@ testRunner.Then(string.Format("User checks first paragraph include \'{0}\'", wor
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("User checks paragraph stars with words")]
         [NUnit.Framework.CategoryAttribute("tag1")]
-        [NUnit.Framework.TestCaseAttribute("https://www.lipsum.com/", "Lorem ipsum dolor sit amet, consectetur adipiscing elit", null)]
-        public virtual void UserChecksParagraphStarsWithWords(string homePage, string words, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("https://www.lipsum.com/", "Lorem ipsum dolor sit amet, consectetur adipiscing elit", "1", null)]
+        public virtual void UserChecksParagraphStarsWithWords(string homePage, string words, string numberofParagraph, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "tag1"};
@@ -143,6 +144,7 @@ testRunner.Then(string.Format("User checks first paragraph include \'{0}\'", wor
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("homePage", homePage);
             argumentsOfScenario.Add("words", words);
+            argumentsOfScenario.Add("numberofParagraph", numberofParagraph);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User checks paragraph stars with words", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 15
 this.ScenarioInitialize(scenarioInfo);
@@ -174,7 +176,7 @@ testRunner.When("User checks text visibility", ((string)(null)), ((TechTalk.Spec
 testRunner.And("User clicks submit button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 19
-testRunner.Then(string.Format("User checks paragraph starts with \'{0}\'", words), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.Then(string.Format("User checks {0} starts with \'{1}\'", numberofParagraph, words), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -256,8 +258,8 @@ testRunner.Then(string.Format("User checks generate page include \'{0}\' \'{1}\'
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("User checks that page will not start from words")]
         [NUnit.Framework.CategoryAttribute("tag4")]
-        [NUnit.Framework.TestCaseAttribute("https://www.lipsum.com/", "Lorem ipsum", null)]
-        public virtual void UserChecksThatPageWillNotStartFromWords(string homePage, string words, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("https://www.lipsum.com/", "Lorem ipsum", "1", null)]
+        public virtual void UserChecksThatPageWillNotStartFromWords(string homePage, string words, string numberOfParagraph, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "tag4"};
@@ -269,6 +271,7 @@ testRunner.Then(string.Format("User checks generate page include \'{0}\' \'{1}\'
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("homePage", homePage);
             argumentsOfScenario.Add("words", words);
+            argumentsOfScenario.Add("numberOfParagraph", numberOfParagraph);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User checks that page will not start from words", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 48
 this.ScenarioInitialize(scenarioInfo);
@@ -303,7 +306,7 @@ testRunner.And("User clicks checkbox start with lorem ipsum visibility", ((strin
 testRunner.And("User clicks submit button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 53
-testRunner.Then(string.Format("User checks first paragraph not starts from \'{0}\'", words), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.Then(string.Format("User checks {0} not starts from \'{1}\'", numberOfParagraph, words), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

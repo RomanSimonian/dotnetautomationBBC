@@ -4,7 +4,7 @@ using SeleniumExtras.PageObjects;
 
 namespace BBC.FootballLeaguesPages
 {
-    public class LeagueOne : BasePage
+    public class LeagueOnePage : BasePage
     {
         [FindsBy(How = How.XPath, Using = "//a[text()='Scores & Fixtures']")]
         private IWebElement goToScoresAndFixtures;
@@ -24,6 +24,6 @@ namespace BBC.FootballLeaguesPages
 
         public void ClickOnGoToScoresAndFixtures() { goToScoresAndFixtures.Click(); }
 
-        public LeagueOne(WebDriver driver) : base(driver) { }
+        public LeagueOnePage(WebDriver driver) : base(driver) { }
     }
 }

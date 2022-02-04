@@ -21,7 +21,7 @@ namespace SpecFlowLoremIpsum.Pages
 
         public GeneratePage(WebDriver driver) : base(driver) { }
 
-        public String GetResultGenerated()
+        public string GetResultGenerated()
         {
             return resultGenerated.Text;
         }

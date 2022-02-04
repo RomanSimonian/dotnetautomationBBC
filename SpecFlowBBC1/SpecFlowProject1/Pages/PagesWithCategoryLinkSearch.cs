@@ -13,7 +13,11 @@ namespace SpecFlowProject1.Pages
         [FindsBy(How = How.XPath, Using = "//a[@href='https://www.bbc.co.uk/programmes/p00fqcb2']//span/p/span")]
         private IWebElement firstNewArticleWirhSearch;
 
-
+        public string GetTextFromTitle(int titleNumber)
+        {
+            return driver.FindElement(By.XPath($"//li[{titleNumber}]//span[@aria-hidden]")).Text;
+      
+        }
         public bool IsFirstArticleVisible() { return firstNewArticleWirhSearch.Displayed; }
         public string GetFirstNewArticleWithSearch() { return firstNewArticleWirhSearch.Text; }
 

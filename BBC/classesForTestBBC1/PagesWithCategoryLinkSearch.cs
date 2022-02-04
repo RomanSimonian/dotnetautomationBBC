@@ -11,11 +11,11 @@ namespace BBC.classesForTest
 {
     public class PagesWithCategoryLinkSearch : BasePage
     {
-        [FindsBy(How = How.XPath, Using = "//a[@href='https://www.bbc.co.uk/programmes/p02cfn9y']")]
-        private IWebElement firstNewArticleWirhSearch;
-
-        public string GetFirstNewArticleWirhSearch() { return firstNewArticleWirhSearch.Text; }
-
         public PagesWithCategoryLinkSearch(WebDriver driver) : base(driver) { }
+
+        public string GetTextFromTitle(int titleNumber)
+        {
+            return driver.FindElement(By.XPath($"//li[{titleNumber}]//span[@aria-hidden]")).Text;
+        }
     }
 }

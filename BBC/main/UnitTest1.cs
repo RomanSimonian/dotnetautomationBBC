@@ -13,28 +13,26 @@ namespace BBC
     [TestClass]
     public class UnitTest1 : BaseTest
     {
-        string firstArticle = "'A dark day': South Africans remember Desmond Tutu";
-        string secondArticle = "Taliban ban long road trips for solo women";
-        string thirdArticke = "US west coast battered by heavy snowstorms";
-        string fourthArticle = "Canadian filmmaker Jean-Marc Vallée dies aged 58";
-        string fifthArticle = "Amber Heard names new dog after feud minister";
-
-
         string question = "What questions would you like us to answer?";
 
 
         [TestMethod]
-        public void checkHeadlineArticle()
+        public void CheckHeadlineArticle()
         {
-            GetHomePage().ClickOnGoToNews();
+            GetHomePage().ClickOnGoToCategory("News");
             Assert.IsTrue(GetNewsPage().GetHeadlineArticle().Contains("Covid-related travel chaos spills into new week"));
         }
 
-
-       
         [TestMethod]
         public void ChecTitlesNameskNews()
         {
+            var expectedTitles = new List<string> { "Winter Olympics opening ceremony begins",
+                "South Africa makes its own version of Moderna jab",
+                "UK PM Johnson rocked by wave of resignations",
+                "Billionaire Bezos' superyacht sparks bridge row",
+                "India row over right to wear hijab deepens"
+                };
+
             #region
             /*
             driver.FindElement(By.XPath("//a[@href='https://www.bbc.com/news']")).Click();
@@ -59,13 +57,13 @@ namespace BBC
             Assert.IsTrue(news5.Contains("Forget Elf on a Shelf, here's Santa on a ladder..."));
            */
             #endregion
-            GetHomePage().ClickOnGoToNews();
-            Assert.IsTrue(GetNewsPage().GetFirstArticle().Contains(firstArticle));
-            Assert.IsTrue(GetNewsPage().GetSecondArticle().Contains(secondArticle));
-            Assert.IsTrue(GetNewsPage().GetThirhArticle().Contains(thirdArticke));
-            Assert.IsTrue(GetNewsPage().GetFourthArticle().Contains(fourthArticle));
-            Assert.IsTrue(GetNewsPage().GetFifthArticle().Contains(fifthArticle));
-        }
+
+            GetHomePage().ClickOnGoToCategory("News");
+            foreach (var item in GetNewsPage().GetSecondaryTitleList().Select(r => r.ToString()))
+            {
+                Assert.IsTrue(expectedTitles.Contains(item));
+            }          
+        }     
         
         //TASK 3
         [TestMethod]
@@ -93,17 +91,17 @@ namespace BBC
             }
             */
             #endregion
-            GetHomePage().ClickOnGoToNews();
-            GetNewsPage().EnterSearchInput(GetNewsPage().GetCategoryLink());
-            Assert.IsTrue(GetPagesWithCategoryLinkSearch().GetFirstNewArticleWirhSearch().Contains("World"));
+            GetHomePage().ClickOnGoToCategory("News");
+            GetNewsPage().EnterSearchInput(GetNewsPage().GetCategoryLink("1"));
+            Assert.IsTrue(GetPagesWithCategoryLinkSearch().GetTextFromTitle(1).Contains("World"));
         }
         
 
        //PART 2
        [TestMethod]
-       public void FillFormWithoutText()
+       public void SendFormWithoutText()
        {
-           GetHomePage().ClickOnGoToNews();
+            GetHomePage().ClickOnGoToCategory("News");
            GetNewsPage().ClickOnCoronavirusNews();
 
            GetCoronavirusPage().ClickOnCoronavirusStories();
@@ -122,7 +120,7 @@ namespace BBC
                {"Age","22" }
            };
            GetForm().FillForm(userWithoutText);
-           Assert.IsTrue(GetCoronavirusPage().GetErrorMessageForText().Contains("can't be blank"));
+           Assert.IsTrue(GetCoronavirusPage().GetErrorMessage().Contains("can't be blank"));
             #region
             /*
            driver.FindElement(By.XPath("//a[@href='https://www.bbc.com/news']")).Click();
@@ -158,9 +156,9 @@ namespace BBC
         }
 
        [TestMethod]
-       public void withoutName()
+       public void SendFormWithoutName()
         {
-            GetHomePage().ClickOnGoToNews();
+            GetHomePage().ClickOnGoToCategory("News");
             GetNewsPage().ClickOnCoronavirusNews();
 
             GetCoronavirusPage().ClickOnCoronavirusStories();
@@ -180,7 +178,8 @@ namespace BBC
             };
 
             GetForm().FillForm(userWithoutName);
-            Assert.IsTrue(GetCoronavirusPage().GetErrorMessageForName().Contains("Name can't be blank"));
+            GetForm().ClickOnButtonSubmit();
+            Assert.IsTrue(GetCoronavirusPage().GetErrorMessage().Contains("Name can't be blank"));
             #region
             /*
             driver.FindElement(By.XPath("//a[@href='https://www.bbc.com/news']")).Click();
@@ -220,9 +219,9 @@ namespace BBC
 
         
        [TestMethod]
-       public void notAccepted()
+       public void SendFormWithoutAcceptTerms()
         {
-            GetHomePage().ClickOnGoToNews();
+            GetHomePage().ClickOnGoToCategory("News");
             GetNewsPage().ClickOnCoronavirusNews();
 
             GetCoronavirusPage().ClickOnCoronavirusStories();
@@ -243,7 +242,7 @@ namespace BBC
 
             GetForm().FillForm(userWithoutAcceptTerms);
             GetForm().ClickOnAcceptTermsOfServices();
-            Assert.IsTrue(GetCoronavirusPage().GetErrorMessageForAccept().Contains("must be accepted"));
+            Assert.IsTrue(GetCoronavirusPage().GetErrorMessage().Contains("must be accepted"));
 
             #region
             /*
@@ -286,13 +285,6 @@ namespace BBC
         [TestMethod]
        public void BBC2_1()
        {
-           GetHomePage().ClickOnGoToSport();
-           GetSportPage().ClickOnGoToFootball();
-            GetFootballPage().ClickOnGoToLeagues();
-            GetHomePage().ImplicitWat(30);
-            GetFootballPage().ClickOnGoToPremierLeague();
-            GetPremierLeague().ClickOnGoToScoresAndFixtures();
-            
 
             #region
             /*

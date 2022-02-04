@@ -44,16 +44,17 @@ namespace SpecFlowLoremIpsum.StepDefinitions
         }
 
         [Given(@"User checks buttons language visibility")]
-        public void ChecksButonSelectLanguageVisibility()
+        public bool ChecksButonSelectLanguageVisibility()
         {
             homePage = pageFactoryManager.GetHomePage();
-            homePage.IsSelectLanguageButtonVisible();
+
+            return homePage.IsSelectLanguageButtonVisible;
         }
 
         [When(@"User clicks on button '([^']*)'")]
         public void ClickOnButtonSelectRussiannLanguage(string language)
         {
-            homePage.ClickOnLanguage(language);
+            homePage.ClickOnSelectLanguage(language);
         }
 
         [When(@"User checks text vidibiluty")]
@@ -62,23 +63,25 @@ namespace SpecFlowLoremIpsum.StepDefinitions
             throw new PendingStepException();
         }
 
-        [Then(@"User checks first paragraph include '([^']*)'")]
-        public void CheckFirstParagraphIncludeWord(string word)
-        {
-            Assert.IsTrue(homePage.GetTextFromFirstParagraph().Contains(word));
-        }
-
         [When(@"User checks text visibility")]
-        public void CheckTextVisibility()
+        public bool CheckTextVisibility()
         {
-            homePage.IsFirstParagraphVisible();
+           return homePage.IsFirstParagraphVisible;
         }
 
-        [Then(@"User checks paragraph starts with '([^']*)'")]
-        public void CheckParagraphStartsWith(string words)
+        [Then(@"User checks (.*) include '([^']*)'")]
+        public void ThenUserChecksInclude(int numberOfParagraph, string word)
         {
-            Assert.IsTrue(homePage.GetTextFromFirstParagraph().Contains(words));
+            Assert.IsTrue(homePage.GetTextFromParagraph(numberOfParagraph).Contains(word));
         }
+
+
+        [Then(@"User checks (.*) starts with '([^']*)'")]
+        public void ThenUserChecksStartsWith(int numberOfParagraph, string words)
+        {
+            Assert.IsTrue(homePage.GetTextFromParagraph(numberOfParagraph).Contains(words));
+        }
+
 
         [When(@"User clicks submit button")]
         public void ClickSubmitButton()
@@ -87,15 +90,15 @@ namespace SpecFlowLoremIpsum.StepDefinitions
         }
 
         [Given(@"User checks button generate visibility")]
-        public void CheckButtonGenerateVisibility()
+        public bool CheckButtonGenerateVisibility()
         {
-            homePage.IsSubmitButtonGenerateVisible();
+            return homePage.IsSubmitButtonGenerateVisible;
         }
 
         [Given(@"User checks count field visibility")]
-        public void CheckCountFieldVisibility()
+        public bool CheckCountFieldVisibility()
         {
-            homePage.IsIconAmountVisible();
+           return homePage.IsIconAmountVisible;
         }
 
         [Given(@"User checks button '([^']*)' visibility")]
@@ -126,9 +129,9 @@ namespace SpecFlowLoremIpsum.StepDefinitions
         }
 
         [When(@"User checks checkbox start with lorem ipsum visibility")]
-        public void CheckCheckboxStartWithLoremIpsumVisibility()
+        public bool CheckCheckboxStartWithLoremIpsumVisibility()
         {
-            homePage.IsCheckBoxStartWithLoremVisible();
+           return homePage.IsCheckBoxStartWithLoremVisible;
         }
 
         [When(@"User clicks checkbox start with lorem ipsum visibility")]
@@ -137,11 +140,12 @@ namespace SpecFlowLoremIpsum.StepDefinitions
             homePage.ClickOnBoxStartWithLorem();
         }
 
-        [Then(@"User checks first paragraph not starts from '([^']*)'")]
-        public void ChecksFirstParagraphStartsFrom(string words)
+        [Then(@"User checks (.*) not starts from '([^']*)'")]
+        public void ThenUserChecksNotStartsFrom(int numberOfParagraph, string words)
         {
-           Assert.IsFalse(homePage.GetTextFromFirstParagraph().StartsWith(words));
+            Assert.IsTrue(homePage.GetTextFromParagraph(numberOfParagraph).Contains(words));
         }
+
 
         [Then(@"User clicks submit button and count paragraps include word lorem and checks probability lorem word")]
         public void ClickSubmitButtonAndCountParagrapsIncludeWordLorem()

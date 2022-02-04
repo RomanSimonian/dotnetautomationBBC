@@ -45,7 +45,7 @@ namespace SpecFlowProject1.StepDefinitions
         }
 
         [Given(@"User opens '([^']*)' page")]
-        public void OpensPage(string url)
+        public void OpenPage(string url)
         {
             homePage = pageFactoryManager.GetHomePage();
             homePage.OpenHomePage(url);
@@ -58,14 +58,6 @@ namespace SpecFlowProject1.StepDefinitions
             homePage.IsButtonNewsVisible();
         }
 
-        [When(@"User clicks news button")]
-        public void ClicksNewsButton()
-        {
-            homePage.ClickOnGoToNews();
-            newsPage = pageFactoryManager.GetNewsPage();
-            form = pageFactoryManager.GetForm();
-            coronavirusPage = pageFactoryManager.GetCoronavirusPage();
-        }
 
         [Then(@"User checks head title include '([^']*)'")]
         public void ThenUserChecksHeadTitleInclude(string words)
@@ -73,42 +65,20 @@ namespace SpecFlowProject1.StepDefinitions
             Assert.IsTrue(newsPage.GetHeadlineArticle().Contains(words));
         }
 
-        [Then(@"User checks first title include '([^']*)'")]
-        public void ThenUserChecksFirstTitleInclude(string title1)
+        [When(@"User clicks '([^']*)' button")]
+        public void WhenUserClicksButton(string category)
         {
+            homePage.ClickOnGoToCategory(category);
             newsPage = pageFactoryManager.GetNewsPage();
-            newsPage.GetFirstArticle().Contains(title1);
-        }
-
-        [Then(@"User checks second title include '([^']*)'")]
-        public void ThenUserChecksSecondTitleInclude(string title2)
-        {
-            newsPage.GetSecondArticle().Contains(title2);
-        }
-
-        [Then(@"User checks third title include '([^']*)'")]
-        public void ThenUserChecksThirdTitleInclude(string title3)
-        {
-           newsPage.GetThirdArticle().Contains(title3);
-        }
-
-        [Then(@"User checks fourth title include '([^']*)'")]
-        public void ThenUserChecksFourthTitleInclude(string title4)
-        {
-            newsPage.GetFourthArticle().Contains(title4);   
-        }
-
-        [Then(@"User checks fifth title include '([^']*)'")]
-        public void ThenUserChecksFifthTitleInclude(string title5)
-        {
-            newsPage.GetFifthArticle().Contains(title5);
+            form = pageFactoryManager.GetForm();
+            coronavirusPage = pageFactoryManager.GetCoronavirusPage();
         }
 
         [When(@"User enter category name in search")]
         public void WhenUserEnterCategoryNameInSearch()
         {
             newsPage = pageFactoryManager.GetNewsPage();
-            newsPage.EnterSearchInput(newsPage.GetCategoryLink());
+            newsPage.EnterSearchInput(newsPage.GetCategoryLink("1"));
             newsPage.WaitForPageLoadComplate(30);
         }
 
@@ -185,7 +155,7 @@ namespace SpecFlowProject1.StepDefinitions
         {
             coronavirusPage.WaitForPageLoadComplate(60);
             coronavirusPage.WaitErrorMassageVisible();
-            Assert.IsTrue(coronavirusPage.GetErrorMessageForName().Contains(massage));
+            Assert.IsTrue(coronavirusPage.GetErroMessage().Contains(massage));
         }
 
         [Then(@"User checks error '([^']*)'t be blank'")]
@@ -193,7 +163,7 @@ namespace SpecFlowProject1.StepDefinitions
         {
             coronavirusPage.WaitForPageLoadComplate(60);
             coronavirusPage.WaitErrorMassageVisible();
-            Assert.IsTrue(coronavirusPage.GetErrorMessageForName().Contains(massage));
+            Assert.IsTrue(coronavirusPage.GetErroMessage().Contains(massage));
         }
 
         [When(@"User enter form data")]
@@ -211,7 +181,8 @@ namespace SpecFlowProject1.StepDefinitions
                {"Location ","kyiv" },
                {"Age","22" }
            };
-            form.ClickOnAcceptTermsOfServices();
+            form.ClickOnAcceptTermsOfServiceButton();
+            form.ClickOnButtonSubmit();
             form.FillForm(userWithoutText);
         }
 
@@ -220,8 +191,16 @@ namespace SpecFlowProject1.StepDefinitions
         {
             coronavirusPage.WaitForPageLoadComplate(60);
             coronavirusPage.WaitErrorMassageVisible();
-            Assert.IsTrue(coronavirusPage.GetErrorMessageForName().Contains(acceptMessage));
+            Assert.IsTrue(coronavirusPage.GetErroMessage().Contains(acceptMessage));
         }
 
+        [Then(@"User checks '([^']*)' '([^']*)' '([^']*)' '([^']*)'")]
+        public void ThenUserChecks(string title1, string title2, string title3, string title4)
+        {
+                Assert.IsTrue(newsPage.GetTitleText("1").Contains(title1));   
+                Assert.IsTrue(newsPage.GetTitleText("2").Contains(title2)); 
+                Assert.IsTrue(newsPage.GetTitleText("3").Contains(title3)); 
+                Assert.IsTrue(newsPage.GetTitleText("4").Contains(title4)); 
+        }
     }
 }

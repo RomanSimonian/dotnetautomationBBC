@@ -34,22 +34,25 @@ namespace SpecFlowLoremIpsum.Pages
             driver.Navigate().GoToUrl(url);
         }
 
-        public bool IsCheckBoxStartWithLoremVisible() { return boxStartWithLorem.Displayed; }
+        public bool IsCheckBoxStartWithLoremVisible => boxStartWithLorem.Displayed; 
 
-        public bool IsIconAmountVisible() { return iconAmount.Displayed; }
+        public bool IsIconAmountVisible => iconAmount.Displayed; 
 
-        public bool IsSubmitButtonGenerateVisible() { return submitButtonGenerate.Displayed; }
+        public bool IsSubmitButtonGenerateVisible => submitButtonGenerate.Displayed;    
 
-        public bool IsFirstParagraphVisible() { return textFromFirstParagraph.Displayed; }
+        public bool IsFirstParagraphVisible => textFromFirstParagraph.Displayed; 
 
-        public bool IsSelectLanguageButtonVisible() { return selectLanguage.Displayed; }
+        public bool IsSelectLanguageButtonVisible => selectLanguage.Displayed; 
 
-        public void ClickOnLanguage(string language) 
+        public void ClickOnSelectLanguage(string language) 
         {
             driver.FindElement(By.XPath($"//a[contains(text(),'{language}')]")).Click();
         }
 
-        public String GetTextFromFirstParagraph() { return textFromFirstParagraph.Text; }
+        public string GetTextFromParagraph(int number)
+        {
+            return driver.FindElement(By.XPath($"//div[{number}]/p")).Text;
+        }
 
         public void ClickOnSubmitGenerate() { submitButtonGenerate.Click(); }
 

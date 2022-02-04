@@ -20,8 +20,6 @@ namespace SpecFlowProject1.LeaguesPages
         [FindsBy(How = How.XPath, Using = "//a[@href='/sport/football/scottish-league-cup/scores-fixtures/2021-07']")]
         private IWebElement selectJuly;
 
-
-
         public void ClickSelectJuly() { selectJuly.Click(); }
 
         public void ClickGoToPrevious() { goToPrevious.Click(); }

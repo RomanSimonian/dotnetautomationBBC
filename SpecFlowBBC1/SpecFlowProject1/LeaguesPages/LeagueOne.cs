@@ -20,9 +20,6 @@ namespace SpecFlowProject1.LeaguesPages
         [FindsBy(How = How.XPath, Using = "//a[@href='/sport/football/league-one/scores-fixtures/2021-12?filter=results']")]
         private IWebElement selectDecember;
 
-
-
-
         public void ClickSelectJuly() { selectDecember.Click(); }
 
         public void ClickGoToPrevious() { goToPrevious.Click(); }

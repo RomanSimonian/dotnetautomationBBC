@@ -76,8 +76,8 @@ namespace SpecFlowProject1.Features
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("User checks head title include words")]
         [NUnit.Framework.CategoryAttribute("tag")]
-        [NUnit.Framework.TestCaseAttribute("https://www.bbc.com/", "Urgent US-Russia talks amid Ukraine tensions", null)]
-        public virtual void UserChecksHeadTitleIncludeWords(string homePage, string words, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("https://www.bbc.com/", "Urgent US-Russia talks amid Ukraine tensions", "News", null)]
+        public virtual void UserChecksHeadTitleIncludeWords(string homePage, string words, string category, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "tag"};
@@ -89,6 +89,7 @@ namespace SpecFlowProject1.Features
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("homePage", homePage);
             argumentsOfScenario.Add("words", words);
+            argumentsOfScenario.Add("category", category);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User checks head title include words", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 5
 this.ScenarioInitialize(scenarioInfo);
@@ -117,7 +118,7 @@ testRunner.Given(string.Format("User opens \'{0}\' page", homePage), ((string)(n
 testRunner.When("User checks news page button visibility", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 8
-testRunner.And("User clicks news button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And(string.Format("User clicks \'{0}\' button", category), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 9
 testRunner.Then(string.Format("User checks head title include \'{0}\'", words), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -129,8 +130,8 @@ testRunner.Then(string.Format("User checks head title include \'{0}\'", words), 
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("User checks head secondly include words")]
         [NUnit.Framework.CategoryAttribute("tag2")]
-        [NUnit.Framework.TestCaseAttribute("https://www.bbc.com/", "US and Russia", "Meat Loaf", "False banana", "Tearful Adele", "Tonga tsunami", null)]
-        public virtual void UserChecksHeadSecondlyIncludeWords(string homePage, string title1, string title2, string title3, string title4, string title5, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("https://www.bbc.com/", "South Africa", "Meat Loaf", "False banana", "Tearful Adele", "News", null)]
+        public virtual void UserChecksHeadSecondlyIncludeWords(string homePage, string title1, string title2, string title3, string title4, string category, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "tag2"};
@@ -145,7 +146,7 @@ testRunner.Then(string.Format("User checks head title include \'{0}\'", words), 
             argumentsOfScenario.Add("title2", title2);
             argumentsOfScenario.Add("title 3", title3);
             argumentsOfScenario.Add("title4", title4);
-            argumentsOfScenario.Add("title5", title5);
+            argumentsOfScenario.Add("category", category);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User checks head secondly include words", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 16
 this.ScenarioInitialize(scenarioInfo);
@@ -174,22 +175,10 @@ testRunner.Given(string.Format("User opens \'{0}\' page", homePage), ((string)(n
 testRunner.When("User checks news page button visibility", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 19
-testRunner.And("User clicks news button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And(string.Format("User clicks \'{0}\' button", category), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 20
-testRunner.Then(string.Format("User checks first title include \'{0}\'", title1), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 21
-testRunner.Then(string.Format("User checks second title include \'{0}\'", title2), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 22
-testRunner.Then("User checks third title include \'<title3>\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 23
-testRunner.Then(string.Format("User checks fourth title include \'{0}\'", title4), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 24
-testRunner.Then(string.Format("User checks fifth title include \'{0}\'", title5), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.Then(string.Format("User checks \'{0}\' \'{1}\' \'<title3>\' \'{2}\'", title1, title2, title4), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -198,8 +187,8 @@ testRunner.Then(string.Format("User checks fifth title include \'{0}\'", title5)
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("User enter category name ling in search field")]
         [NUnit.Framework.CategoryAttribute("tag3")]
-        [NUnit.Framework.TestCaseAttribute("https://www.bbc.com/", "Science & Environment", null)]
-        public virtual void UserEnterCategoryNameLingInSearchField(string homePage, string keyword, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("https://www.bbc.com/", "Science & Environment", "News", null)]
+        public virtual void UserEnterCategoryNameLingInSearchField(string homePage, string keyword, string category, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "tag3"};
@@ -211,8 +200,9 @@ testRunner.Then(string.Format("User checks fifth title include \'{0}\'", title5)
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("homePage", homePage);
             argumentsOfScenario.Add("keyword", keyword);
+            argumentsOfScenario.Add("category", category);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User enter category name ling in search field", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 32
+#line 28
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -232,22 +222,22 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 33
+#line 29
 testRunner.Given(string.Format("User opens \'{0}\' page", homePage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 34
+#line 30
 testRunner.When("User checks news page button visibility", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 35
-testRunner.And("User clicks news button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 31
+testRunner.And(string.Format("User clicks \'{0}\' button", category), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 36
+#line 32
 testRunner.And("User enter category name in search", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 37
+#line 33
 testRunner.And("User checks search page visibility", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 38
+#line 34
 testRunner.Then(string.Format("User checks first search title include \'{0}\'", keyword), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -257,8 +247,8 @@ testRunner.Then(string.Format("User checks first search title include \'{0}\'", 
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("User send form for question without name")]
         [NUnit.Framework.CategoryAttribute("tag5")]
-        [NUnit.Framework.TestCaseAttribute("https://www.bbc.com/", "can\'t be blank", null)]
-        public virtual void UserSendFormForQuestionWithoutName(string homePage, string message, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("https://www.bbc.com/", "can\'t be blank", "News", null)]
+        public virtual void UserSendFormForQuestionWithoutName(string homePage, string message, string category, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "tag5"};
@@ -270,8 +260,9 @@ testRunner.Then(string.Format("User checks first search title include \'{0}\'", 
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("homePage", homePage);
             argumentsOfScenario.Add("message", message);
+            argumentsOfScenario.Add("category", category);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User send form for question without name", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 46
+#line 42
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -291,25 +282,25 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 47
+#line 43
 testRunner.Given(string.Format("User opens \'{0}\' page", homePage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 48
+#line 44
 testRunner.When("User checks news page button visibility", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 49
-testRunner.And("User clicks news button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 45
+testRunner.And(string.Format("User clicks \'{0}\' button", category), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 50
+#line 46
 testRunner.And("User clicks coronavirus news", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 51
+#line 47
 testRunner.And("User clicks go to form coronavirus stories", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 52
+#line 48
 testRunner.And("User enter form without name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 53
+#line 49
 testRunner.Then(string.Format("User checks error \'{0}\'", message), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -318,15 +309,16 @@ testRunner.Then(string.Format("User checks error \'{0}\'", message), ((string)(n
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("User send form for question without question")]
-        [NUnit.Framework.TestCaseAttribute("https://www.bbc.com/", "can\'t be blank", null)]
-        public virtual void UserSendFormForQuestionWithoutQuestion(string homePage, string message, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("https://www.bbc.com/", "can\'t be blank", "News", null)]
+        public virtual void UserSendFormForQuestionWithoutQuestion(string homePage, string message, string category, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("homePage", homePage);
             argumentsOfScenario.Add("message", message);
+            argumentsOfScenario.Add("category", category);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User send form for question without question", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 59
+#line 55
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -346,25 +338,25 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 60
+#line 56
 testRunner.Given(string.Format("User opens \'{0}\' page", homePage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 61
+#line 57
 testRunner.When("User checks news page button visibility", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 62
-testRunner.And("User clicks news button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 58
+testRunner.And(string.Format("User clicks \'{0}\' button", category), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 63
+#line 59
 testRunner.And("User clicks coronavirus news", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 64
+#line 60
 testRunner.And("User clicks go to form coronavirus stories", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 65
+#line 61
 testRunner.And("User enter form without question", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 66
+#line 62
 testRunner.Then(string.Format("User checks error \'{0}\'", message), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -373,15 +365,16 @@ testRunner.Then(string.Format("User checks error \'{0}\'", message), ((string)(n
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("User send form for question without accept button")]
-        [NUnit.Framework.TestCaseAttribute("https://www.bbc.com/", "must be accepted", null)]
-        public virtual void UserSendFormForQuestionWithoutAcceptButton(string homePage, string acceptMessage, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("https://www.bbc.com/", "must be accepted", "News", null)]
+        public virtual void UserSendFormForQuestionWithoutAcceptButton(string homePage, string acceptMessage, string category, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("homePage", homePage);
             argumentsOfScenario.Add("acceptMessage", acceptMessage);
+            argumentsOfScenario.Add("category", category);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User send form for question without accept button", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 74
+#line 70
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -401,25 +394,25 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 75
+#line 71
 testRunner.Given(string.Format("User opens \'{0}\' page", homePage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 76
+#line 72
 testRunner.When("User checks news page button visibility", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 77
-testRunner.And("User clicks news button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 73
+testRunner.And(string.Format("User clicks \'{0}\' button", category), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 78
+#line 74
 testRunner.And("User clicks coronavirus news", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 79
+#line 75
 testRunner.And("User clicks go to form coronavirus stories", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 80
+#line 76
 testRunner.And("User enter form data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 81
+#line 77
 testRunner.Then(string.Format("User checks error \'{0}\'", acceptMessage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

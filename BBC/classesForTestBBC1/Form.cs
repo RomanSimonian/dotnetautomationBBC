@@ -25,10 +25,9 @@ namespace BBC.classesForTestBBC1
                 var elementValue = values[element.GetAttribute("placeholder")];
                 element.SendKeys(elementValue);
             }
-            acceptTermsOfService.Click();
-            buttonSubmit.Click();
         }
 
+        public void ClickOnButtonSubmit() { buttonSubmit.Click(); }
         public void ClickOnAcceptTermsOfServices() { acceptTermsOfService.Click(); }
         
         public Form(WebDriver driver) : base(driver) { }

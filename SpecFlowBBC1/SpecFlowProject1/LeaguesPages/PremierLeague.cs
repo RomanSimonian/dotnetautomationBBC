@@ -23,8 +23,6 @@ namespace SpecFlowProject1.LeaguesPages
         [FindsBy(How = How.XPath, Using = "//button[@aria-label='previous']")]
         private IWebElement goToPrevious;
 
-        //span[contains(@data-reactid,'08-wrapper.0.0.0.0.1.0')] | //span[contains(@data-reactid,'08-wrapper.0.0.0.2.1.0')] for 1 play goals
-        //span[contains(@data-reactid,'0281-wrapper.0.0.0.0.1.0')] | //span[contains(@data-reactid,'0281-wrapper.0.0.0.2.1.0')] for 2 play goals
         public void ClickGoToPrevious() { goToPrevious.Click(); }
 
         public void ClickSelectAugust() { selectAugust.Click(); }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
 
@@ -12,47 +13,30 @@ namespace BBC.classesForTest
         [FindsBy(How = How.XPath, Using = "//input[@id='orb-search-q']")]
         private IWebElement searchInput;
 
-        [FindsBy(How = How.XPath, Using = "//div[contains(@class,'gs-c-promo-body')]//a[@href='/news/world-59798682']")]
+        [FindsBy(How = How.XPath, Using = "//div[contains(@class,'inline-block@m')]//h3")]
         private IWebElement headlineArticle;
 
-        [FindsBy(How = How.XPath, Using = "//div[contains(@class,'gs-c-promo-body')]//a[@href='/news/world-africa-59796716']")]
-        private IWebElement firstArticle;
-
-        [FindsBy(How = How.XPath, Using = "//div[contains(@class,'gs-c-promo-body')]//a[@href='/news/world-asia-59800113']")]
-        private IWebElement secondArticle;
-
-        [FindsBy(How = How.XPath, Using = "//div[contains(@class,'gs-c-promo-body')]//a[@href='/news/world-us-canada-59800032']")]
-        private IWebElement thirdArticle;
-
-        [FindsBy(How = How.XPath, Using = "//div[contains(@class,'gs-c-promo-body')]//a[@href='/news/entertainment-arts-59800777']")]
-        private IWebElement fourthArticle;
-
-        [FindsBy(How = How.XPath, Using = "//div[contains(@class,'gs-c-promo-body')]//a[@href='/news/world-australia-59802233']")]
-        private IWebElement fifthArticle;
-
-        [FindsBy(How = How.XPath, Using = "//li[@class='nw-c-promo-meta']//a[@href='/news/world']//span[text()='World']")]
-        private IWebElement categoryLink;
-
-     
+        [FindsBy(How = How.XPath, Using = "//div[contains(@class,'top-stories__secondary-item')]//h3")]
+        private IList<IWebElement> secondaryTitleList;
 
 
-        public string GetCategoryLink()
+        public NewsPage(WebDriver driver) : base(driver) { }
+
+
+        public IList<IWebElement> GetSecondaryTitleList()
+        {return secondaryTitleList; }
+
+        public string GetTitleText(string titleNumber)
         {
-           return categoryLink.GetAttribute("textContent");
+            return driver.FindElement(By.XPath($"//div[contains(@class,'top-stories__secondary-item')][{titleNumber}]//h3")).Text;
         }
-     
-        public string GetFirstArticle() { return firstArticle.Text; }
 
-        public string GetSecondArticle() { return secondArticle.Text; }
-
-        public string GetThirhArticle() { return thirdArticle.Text; }
-
-        public string GetFourthArticle() { return fourthArticle.Text; }
-
-        public string GetFifthArticle() { return fifthArticle.Text; }
+        public string GetCategoryLink(string categoryLinkNumber)
+        {
+            return driver.FindElement(By.XPath($"//div[contains(@class,'top-stories__secondary-item')][{categoryLinkNumber}]//a/span[@aria-hidden]")).Text;
+        }
 
         public string GetHeadlineArticle() { return headlineArticle.Text; }
-
 
         public void EnterSearchInput(string search)
         {
@@ -62,7 +46,5 @@ namespace BBC.classesForTest
         }
 
         public void ClickOnCoronavirusNews() { coronavirusNews.Click(); }
-
-        public NewsPage(WebDriver driver) : base(driver) { }
     }
 }

@@ -1,26 +1,26 @@
 ﻿Feature: Lorem ipsum
 
 @tag
-Scenario: User check
+Scenario: User check paragraph include words
 Given User opens '<homePage>' page
 And User checks buttons language visibility
 When User clicks on button '<language>'
-Then User checks first paragraph include '<word>'
+Then User checks <numberOfParagraph> include '<word>'
 
-Examples: 
-| homePage                | word | language |
-| https://www.lipsum.com/ | рыба | Pyccкий  |
+Examples:
+|          homePage               | word | language | numberOfParagraph |
+| https://www.lipsum.com/ | рыба | Pyccкий  | 1                 |
 
 @tag1 
 Scenario: User checks paragraph stars with words 
 Given User opens '<homePage>' page
 When User checks text visibility
 And User clicks submit button
-Then User checks paragraph starts with '<words>'
+Then User checks <numberofParagraph> starts with '<words>'
 
 Examples: 
-| homePage                | words   |
-| https://www.lipsum.com/ | Lorem ipsum dolor sit amet, consectetur adipiscing elit |
+| homePage                | words                                                   | numberofParagraph |
+| https://www.lipsum.com/ | Lorem ipsum dolor sit amet, consectetur adipiscing elit |           1        |
 
 @tag3
 Scenario: User checks generate page include count of character
@@ -50,11 +50,11 @@ Given User opens '<homePage>' page
 When User checks checkbox start with lorem ipsum visibility 
 And User clicks checkbox start with lorem ipsum visibility
 And User clicks submit button
-Then User checks first paragraph not starts from '<words>'
+Then User checks <numberOfParagraph> not starts from '<words>'
 
 Examples:
-| homePage                | words  | 
-| https://www.lipsum.com/ | Lorem ipsum  |
+| homePage                | words       | numberOfParagraph |
+| https://www.lipsum.com/ | Lorem ipsum | 1                 |
 
 @tag5
 Scenario: User count probability lorem word in paragraph
