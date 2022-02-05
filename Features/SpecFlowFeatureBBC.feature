@@ -8,8 +8,8 @@ Scenario: checkTheFormWithValidInputData
 	Then User can see the form passed
 
 	Examples: 
-	| textData             | nameData | emailData                    | conyactNumberData | locationData |
-	| Here is my story sdf | Nick     | fjqgrezlevoopvwgpi@nthrw.com | +3806723424       | Kyiv         |
+	| textData                  | nameData | emailData                    | conyactNumberData | locationData |
+	| Here is myss ssdftory sdf | Nick     | fjqgrezlevoopvwgpi@nthrw.com | +3806723424       | Kyiv         |
 
 @mytag
 Scenario: checkTheFormWithInvalidTextareaInput
@@ -69,5 +69,5 @@ When User navigates via the <link>
 Then User se articles "<topArticle>" "<underArticle>" "<positionTop>" "<positionUnder>"
 
 Examples: 
-| link                                 | topArticle                                      | underArticle                                | positionTop | positionUnder |
-| https://www.bbc.com/news/coronavirus | Call to delay compulsory vaccines for NHS staff | Ros Atkins On... China's zero-Covid dilemma | 0           | 3             |
+| link                                 | topArticle                                      | underArticle                                    | positionTop | positionUnder |
+| https://www.bbc.com/news/coronavirus | Long Covid: Hidden lung damage spotted on scans | Call to delay compulsory vaccines for NHS staff | 0           | 3             |

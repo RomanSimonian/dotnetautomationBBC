@@ -8,6 +8,7 @@ using TechTalk.SpecFlow;
 using OpenQA.Selenium.Support.UI;
 using System;
 using SeleniumExtras.WaitHelpers;
+using BBC1_task_4._1._1.BLL;
 
 
 namespace BBC1_task_4._1._1.Definitions
@@ -18,6 +19,8 @@ namespace BBC1_task_4._1._1.Definitions
         protected StoriesPage storiesPage = null;
         protected CovidNewsPage covidNewsPage = null;
         protected HomePage homePage = null;
+        protected Articles_bll articles_Bll = null;
+        protected Form_bll form_Bll = null;
 
         private readonly By pop_up = By.XPath("//button[@class='tp-close tp-active']");
 

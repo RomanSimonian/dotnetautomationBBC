@@ -25,6 +25,7 @@ namespace BBC1_task_4._1._1.Definitions
         public void GivenUserGoesToBbcStoriesPage()
         {
             storiesPage = new StoriesPage(driver);
+            form_Bll = new BLL.Form_bll(driver);
         }
 
         [When(@"User enter the (.*) (.*) (.*) (.*) (.*)")]
@@ -38,8 +39,8 @@ namespace BBC1_task_4._1._1.Definitions
                {contactNumberField, conyactNumberData },
                {locationField, locationData },
            };
-
-            storiesPage.FillStoriesPageForm(inputData, acceptCheckbox, acceptCheckbox);
+ 
+            form_Bll.FillForm(inputData, acceptCheckbox, acceptCheckbox);
         }
 
         [Then(@"User can see the form passed")]
@@ -83,8 +84,8 @@ namespace BBC1_task_4._1._1.Definitions
                {contactNumberField, conyactNumberData },
                {locationField, locationData },
            };
-
-           storiesPage.FillStoriesPageForm(inputData, acceptCheckbox, check);
+           
+            form_Bll.FillForm(inputData, acceptCheckbox, check);
         }
 
         [Then(@"User can see the form with UncheckedTermsOfServiceCheckbox assert")]
@@ -98,6 +99,7 @@ namespace BBC1_task_4._1._1.Definitions
         public void GivenUserGoesToBbcHomePage()
         {
             homePage = new HomePage(driver);
+            articles_Bll = new BLL.Articles_bll(driver);
         }
 
         [When(@"User navigates to Main (.*)")]
@@ -109,13 +111,14 @@ namespace BBC1_task_4._1._1.Definitions
         [Then(@"User can see matcing articles (.*)")]
         public void ThenUserCanSeeMatcingArticles(string expected)
         {
-            Assert.IsTrue(homePage.AreHeadlineArticleNameMach(expected));
+            Assert.IsTrue(articles_Bll.HomePageArticlesCheck(expected));
         }
 
         [Given(@"User goes to covid news")]
         public void GivenUserGoesToCovidNews()
         {
             covidNewsPage = new CovidNewsPage(driver);
+            articles_Bll = new BLL.Articles_bll(driver);
         }
 
         [When(@"User navigates via the (.*)")]
@@ -133,7 +136,7 @@ namespace BBC1_task_4._1._1.Definitions
                 {underTheFirstPos,underTheFirstArticle }
             };
 
-            Assert.IsTrue(covidNewsPage.AreSecondaryArticlesMatch(expectedHeadersList));
+            Assert.IsTrue(articles_Bll.CovidSecondaryArticlesCheck(expectedHeadersList));
         }
     }
 }

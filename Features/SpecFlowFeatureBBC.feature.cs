@@ -76,7 +76,7 @@ namespace BBC1_task_4._1._1.Features
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("checkTheFormWithValidInputData")]
         [NUnit.Framework.CategoryAttribute("mytag")]
-        [NUnit.Framework.TestCaseAttribute("Here is my story sdf", "Nick", "fjqgrezlevoopvwgpi@nthrw.com", "+3806723424", "Kyiv", null)]
+        [NUnit.Framework.TestCaseAttribute("Here is myss ssdftory sdf", "Nick", "fjqgrezlevoopvwgpi@nthrw.com", "+3806723424", "Kyiv", null)]
         public virtual void CheckTheFormWithValidInputData(string textData, string nameData, string emailData, string conyactNumberData, string locationData, string[] exampleTags)
         {
             string[] @__tags = new string[] {
@@ -392,7 +392,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("checkSecondaryArticlesTitles")]
         [NUnit.Framework.CategoryAttribute("mytag")]
-        [NUnit.Framework.TestCaseAttribute("https://www.bbc.com/news/coronavirus", "Call to delay compulsory vaccines for NHS staff", "Ros Atkins On... China\'s zero-Covid dilemma", "0", "3", null)]
+        [NUnit.Framework.TestCaseAttribute("https://www.bbc.com/news/coronavirus", "Long Covid: Hidden lung damage spotted on scans", "Call to delay compulsory vaccines for NHS staff", "0", "3", null)]
         public virtual void CheckSecondaryArticlesTitles(string link, string topArticle, string underArticle, string positionTop, string positionUnder, string[] exampleTags)
         {
             string[] @__tags = new string[] {
