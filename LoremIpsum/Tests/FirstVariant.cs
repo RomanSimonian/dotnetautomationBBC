@@ -16,24 +16,6 @@ namespace FinalProlect
 
         string expectedStartWithWords = "Lorem ipsum dolor sit amet, consectetur adipiscing elit";
 
-        string expectedTenAmountWords = "10 words";
-        string expectedMinusOneAmountWords = "-1 words";
-        string expectedZeroAmountWords = "0 words";
-        string expectedFiveWords = "5 words";
-        string expectedTwentyWords = "20 words";
-        string expectedThirtyFiveBytes = "35 bytes";
-        string expectedZeroBytes = "0 bytes";
-        string expectedMinusFiveAmountBytes = "-5 bytes";
-
-        string wordButton = "words";
-        string bytesButton = "bytes";
-        string paragraphButton = "paras";
-        string listsButton = "lists";
-
-
-
-
-
         [TestMethod]
         public void SearchFishWord()
         {
@@ -54,82 +36,82 @@ namespace FinalProlect
         [TestMethod]
         public void GenerateTenWords()
         {
-            GetRadioButton().SetValue(wordButton);
+            GetRadioButton().SetValue("words");
             GetHomePage().EnterAmountOfCharacters("10");
             GetHomePage().ClickOnSubmitGenerate();
            
-            Assert.IsTrue(GetGeneratedPages().GetResultGenerated().Contains(expectedTenAmountWords));
+            Assert.IsTrue(GetGeneratedPages().GetResultGenerated().Contains("10 words"));
         }
 
         [TestMethod]
         public void GenerateMinusOneAmountWords()
         {
-            GetRadioButton().SetValue(wordButton);
+            GetRadioButton().SetValue("words");
             GetHomePage().EnterAmountOfCharacters("-1");
             GetHomePage().ClickOnSubmitGenerate();
 
-            Assert.IsFalse(GetGeneratedPages().GetResultGenerated().Contains(expectedMinusOneAmountWords));
+            Assert.IsFalse(GetGeneratedPages().GetResultGenerated().Contains("-1 words"));
         }
         
 
         [TestMethod]
         public void GenerateZeroWords()
         {
-            GetRadioButton().SetValue(wordButton);
+            GetRadioButton().SetValue("words");
             GetHomePage().EnterAmountOfCharacters("0");
             GetHomePage().ClickOnSubmitGenerate();
 
-            Assert.IsFalse(GetGeneratedPages().GetResultGenerated().Contains(expectedZeroAmountWords));
+            Assert.IsFalse(GetGeneratedPages().GetResultGenerated().Contains("0 words"));
         }
         
         [TestMethod]
         public void GenerateFiveWords()
         {
-            GetRadioButton().SetValue(wordButton);
+            GetRadioButton().SetValue("words");
             GetHomePage().EnterAmountOfCharacters("5");
             GetHomePage().ClickOnSubmitGenerate();
 
-            Assert.IsTrue(GetGeneratedPages().GetResultGenerated().Contains(expectedFiveWords));
+            Assert.IsTrue(GetGeneratedPages().GetResultGenerated().Contains("5 words"));
         }
 
         [TestMethod]
         public void GenerateTwentyWords()
         {
-            GetRadioButton().SetValue(wordButton);
+            GetRadioButton().SetValue("words");
             GetHomePage().EnterAmountOfCharacters("20");
             GetHomePage().ClickOnSubmitGenerate();
 
-            Assert.IsTrue(GetGeneratedPages().GetResultGenerated().Contains(expectedTwentyWords));
+            Assert.IsTrue(GetGeneratedPages().GetResultGenerated().Contains("20 words"));
         }
 
         [TestMethod]
         public void GenerateThirtyFiveBytes()
         {
-            GetRadioButton().SetValue(bytesButton);
+            GetRadioButton().SetValue("bytes");
             GetHomePage().EnterAmountOfCharacters("35");
             GetHomePage().ClickOnSubmitGenerate();
 
-            Assert.IsTrue(GetGeneratedPages().GetResultGenerated().Contains(expectedThirtyFiveBytes));
+            Assert.IsTrue(GetGeneratedPages().GetResultGenerated().Contains("35 bytes"));
         }
 
         [TestMethod]
         public void GenerateZeroBytes()
         {
-            GetRadioButton().SetValue(bytesButton);
-            GetHomePage().EnterAmountOfCharacters(0"");
+            GetRadioButton().SetValue("bytes");
+            GetHomePage().EnterAmountOfCharacters("0");
             GetHomePage().ClickOnSubmitGenerate();
 
-            Assert.IsFalse(GetGeneratedPages().GetResultGenerated().Contains(expectedZeroBytes));
+            Assert.IsFalse(GetGeneratedPages().GetResultGenerated().Contains("0 bytes"));
         }
 
         [TestMethod]
         public void GenerateMinusFiveBytes()
         {
-            GetRadioButton().SetValue(bytesButton);
-            GetHomePage().EnterAmountOfCharacters("-5"));
+            GetRadioButton().SetValue("bytes");
+            GetHomePage().EnterAmountOfCharacters("-5");
             GetHomePage().ClickOnSubmitGenerate();
 
-            Assert.IsFalse(GetGeneratedPages().GetResultGenerated().Contains(expectedMinusFiveAmountBytes));
+            Assert.IsFalse(GetGeneratedPages().GetResultGenerated().Contains("-5 bytes"));
         }
         
         //TASK 2

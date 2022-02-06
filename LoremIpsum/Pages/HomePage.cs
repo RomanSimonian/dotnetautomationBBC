@@ -29,19 +29,14 @@ namespace FinalProlect.Classes_for_test
 
         public bool IsSubmitButtonGenerateVisible => submitButtonGenerate.Displayed; 
 
-        public bool IsFirstParagraphVisible => textFromFirstParagraph.Displayed; 
-
-        public bool IsSelectRussianButtonVisible => selectRussianButton.Displayed; 
-
         public void ClickOnSelectLanguage(string language)
         {
-            var button = driver.FindElement(By.XPath($"//a[contains(text(),'{language}')]"));
-            button.Click();
+            driver.FindElement(By.XPath($"//a[contains(text(),'{language}')]")).Click();
         }
 
         public string GetTextFromParagraph(int number)
         {
-            return textFromParagraph = driver.FindElement(By.XPath($"//div[{number}]/p")).Text;
+            return driver.FindElement(By.XPath($"//div[{number}]/p")).Text;
         }
 
         public void ClickOnSubmitGenerate() { submitButtonGenerate.Click(); }

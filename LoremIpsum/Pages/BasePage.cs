@@ -21,12 +21,5 @@ namespace FinalProlect
         {
             new WebDriverWait(driver, TimeSpan.FromSeconds(timeToWait)).Until(WebDriver => ((IJavaScriptExecutor)driver)).ExecuteScript("return window.jQuery != undefined && jQuery.active <=2;");
         }
-
-        public void WaitVisibilityOfElement(long timeToWait, IWebElement element)
-        {
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(timeToWait));
-            wait.Until(ExpectedConditions.ElementIsVisible(By.XPath());
-        }
-
     }
 }
